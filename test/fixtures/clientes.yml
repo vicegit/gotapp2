@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ci: 1
+  nombre: MyString
+  direccion: MyString
+  telefono: MyString
+  fecha_contrato: 2017-03-27
+  fecha_conexion: 2017-03-27
+  observacion: MyString
+  medidor_id: 1
+  estado_cuenta: false
+
+two:
+  ci: 1
+  nombre: MyString
+  direccion: MyString
+  telefono: MyString
+  fecha_contrato: 2017-03-27
+  fecha_conexion: 2017-03-27
+  observacion: MyString
+  medidor_id: 1
+  estado_cuenta: false

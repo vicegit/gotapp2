@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  concepto: MyString
+  m3: 1
+  tarifa: 1
+
+two:
+  concepto: MyString
+  m3: 1
+  tarifa: 1

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ctacteclis</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Cliente</th>
+      <th>Saldo</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ctacteclis.each do |ctactecli| %>
+      <tr>
+        <td><%= ctactecli.cliente_id %></td>
+        <td><%= ctactecli.saldo %></td>
+        <td><%= link_to 'Show', ctactecli %></td>
+        <td><%= link_to 'Edit', edit_ctactecli_path(ctactecli) %></td>
+        <td><%= link_to 'Destroy', ctactecli, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ctactecli', new_ctactecli_path %>

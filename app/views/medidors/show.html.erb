@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Numero:</strong>
+  <%= @medidor.numero %>
+</p>
+
+<p>
+  <strong>Medicion:</strong>
+  <%= @medidor.medicion %>
+</p>
+
+<p>
+  <strong>Estado medidor:</strong>
+  <%= @medidor.estado_medidor %>
+</p>
+
+<%= link_to 'Edit', edit_medidor_path(@medidor) %> |
+<%= link_to 'Back', medidors_path %>

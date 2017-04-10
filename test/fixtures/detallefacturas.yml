@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  factura_id: 1
+  servicio_id: 1
+  subtotal: 1
+
+two:
+  factura_id: 1
+  servicio_id: 1
+  subtotal: 1

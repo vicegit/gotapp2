@@ -1,0 +1,2 @@
+class Detallectactecli < ApplicationRecord
+end

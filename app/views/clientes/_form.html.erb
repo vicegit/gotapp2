@@ -1,0 +1,62 @@
+<%= form_for(cliente) do |f| %>
+  <% if cliente.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cliente.errors.count, "error") %> prohibited this cliente from being saved:</h2>
+
+      <ul>
+      <% cliente.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :ci %>
+    <%= f.number_field :ci %>
+  </div>
+
+  <div class="field">
+    <%= f.label :nombre %>
+    <%= f.text_field :nombre %>
+  </div>
+
+  <div class="field">
+    <%= f.label :direccion %>
+    <%= f.text_field :direccion %>
+  </div>
+
+  <div class="field">
+    <%= f.label :telefono %>
+    <%= f.text_field :telefono %>
+  </div>
+
+  <div class="field">
+    <%= f.label :fecha_contrato %>
+    <%= f.date_select :fecha_contrato %>
+  </div>
+
+  <div class="field">
+    <%= f.label :fecha_conexion %>
+    <%= f.date_select :fecha_conexion %>
+  </div>
+
+  <div class="field">
+    <%= f.label :observacion %>
+    <%= f.text_field :observacion %>
+  </div>
+
+  <div class="field">
+    <%= f.label :medidor_id %>
+    <%= f.number_field :medidor_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :estado_cuenta %>
+    <%= f.check_box :estado_cuenta %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,2 @@
+class Medidor < ApplicationRecord
+end

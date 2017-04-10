@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cliente_id: 1
+  periodo_id: 1
+  condicion: MyString
+  fecha: 2017-03-12
+  iva: 1
+  erssan: 1
+  total: 1
+
+two:
+  cliente_id: 1
+  periodo_id: 1
+  condicion: MyString
+  fecha: 2017-03-12
+  iva: 1
+  erssan: 1
+  total: 1

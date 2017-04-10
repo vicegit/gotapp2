@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ctactecli_id: 1
+  fechadetalle: 2017-03-27
+  tipodetalle: MyString
+  debe: 1
+  haber: 1
+
+two:
+  ctactecli_id: 1
+  fechadetalle: 2017-03-27
+  tipodetalle: MyString
+  debe: 1
+  haber: 1

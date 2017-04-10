@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  numero: MyString
+  medicion: 1
+  estado_medidor: false
+
+two:
+  numero: MyString
+  medicion: 1
+  estado_medidor: false

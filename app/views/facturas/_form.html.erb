@@ -1,0 +1,52 @@
+<%= form_for(factura) do |f| %>
+  <% if factura.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(factura.errors.count, "error") %> prohibited this factura from being saved:</h2>
+
+      <ul>
+      <% factura.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :cliente_id %>
+    <%= f.number_field :cliente_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :periodo_id %>
+    <%= f.number_field :periodo_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :condicion %>
+    <%= f.text_field :condicion %>
+  </div>
+
+  <div class="field">
+    <%= f.label :fecha %>
+    <%= f.date_select :fecha %>
+  </div>
+
+  <div class="field">
+    <%= f.label :iva %>
+    <%= f.number_field :iva %>
+  </div>
+
+  <div class="field">
+    <%= f.label :erssan %>
+    <%= f.number_field :erssan %>
+  </div>
+
+  <div class="field">
+    <%= f.label :total %>
+    <%= f.number_field :total %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,27 @@
+<%= form_for(ctactecli) do |f| %>
+  <% if ctactecli.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ctactecli.errors.count, "error") %> prohibited this ctactecli from being saved:</h2>
+
+      <ul>
+      <% ctactecli.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :cliente_id %>
+    <%= f.number_field :cliente_id %>
+  </div>
+
+  <div class="field">
+    <%= f.label :saldo %>
+    <%= f.number_field :saldo %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Medidor:</strong>
+  <%= @lectura.medidor_id %>
+</p>
+
+<p>
+  <strong>Periodo:</strong>
+  <%= @lectura.periodo_id %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @lectura.fecha %>
+</p>
+
+<p>
+  <strong>Lector:</strong>
+  <%= @lectura.lector %>
+</p>
+
+<p>
+  <strong>Actual:</strong>
+  <%= @lectura.actual %>
+</p>
+
+<p>
+  <strong>Consumo:</strong>
+  <%= @lectura.consumo %>
+</p>
+
+<p>
+  <strong>Exceso:</strong>
+  <%= @lectura.exceso %>
+</p>
+
+<%= link_to 'Edit', edit_lectura_path(@lectura) %> |
+<%= link_to 'Back', lecturas_path %>

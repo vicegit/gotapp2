@@ -1,0 +1,32 @@
+<%= form_for(medidor) do |f| %>
+  <% if medidor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(medidor.errors.count, "error") %> prohibited this medidor from being saved:</h2>
+
+      <ul>
+      <% medidor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :numero %>
+    <%= f.text_field :numero %>
+  </div>
+
+  <div class="field">
+    <%= f.label :medicion %>
+    <%= f.number_field :medicion %>
+  </div>
+
+  <div class="field">
+    <%= f.label :estado_medidor %>
+    <%= f.check_box :estado_medidor %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

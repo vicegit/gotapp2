@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  medidor_id: 1
+  periodo_id: 1
+  fecha: 2017-03-27
+  lector: MyString
+  actual: 1
+  consumo: 1
+  exceso: 1
+
+two:
+  medidor_id: 1
+  periodo_id: 1
+  fecha: 2017-03-27
+  lector: MyString
+  actual: 1
+  consumo: 1
+  exceso: 1

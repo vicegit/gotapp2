@@ -1,0 +1,2 @@
+class Ctactecli < ApplicationRecord
+end

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cliente:</strong>
+  <%= @factura.cliente_id %>
+</p>
+
+<p>
+  <strong>Periodo:</strong>
+  <%= @factura.periodo_id %>
+</p>
+
+<p>
+  <strong>Condicion:</strong>
+  <%= @factura.condicion %>
+</p>
+
+<p>
+  <strong>Fecha:</strong>
+  <%= @factura.fecha %>
+</p>
+
+<p>
+  <strong>Iva:</strong>
+  <%= @factura.iva %>
+</p>
+
+<p>
+  <strong>Erssan:</strong>
+  <%= @factura.erssan %>
+</p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @factura.total %>
+</p>
+
+<%= link_to 'Edit', edit_factura_path(@factura) %> |
+<%= link_to 'Back', facturas_path %>

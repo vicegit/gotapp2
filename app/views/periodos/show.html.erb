@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Periodo:</strong>
+  <%= @periodo.periodo %>
+</p>
+
+<p>
+  <strong>Fecha vencimiento:</strong>
+  <%= @periodo.fecha_vencimiento %>
+</p>
+
+<p>
+  <strong>Estado periodo:</strong>
+  <%= @periodo.estado_periodo %>
+</p>
+
+<%= link_to 'Edit', edit_periodo_path(@periodo) %> |
+<%= link_to 'Back', periodos_path %>
