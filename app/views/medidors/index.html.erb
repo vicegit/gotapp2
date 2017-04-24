@@ -1,31 +1,55 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Medidors</h1>
+<h1 class="page-header">
+  Medidores
+  <%= link_to new_medidor_path, class: 'btn btn-default' do %>
+  <span class="glyphicon glyphicon-plus"></span>
+  Nuevo Medidor
+  <% end %>
+</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Numero</th>
-      <th>Medicion</th>
-      <th>Estado medidor</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @medidors.each do |medidor| %>
-      <tr>
-        <td><%= medidor.numero %></td>
-        <td><%= medidor.medicion %></td>
-        <td><%= medidor.estado_medidor %></td>
-        <td><%= link_to 'Show', medidor %></td>
-        <td><%= link_to 'Edit', edit_medidor_path(medidor) %></td>
-        <td><%= link_to 'Destroy', medidor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Medidor', new_medidor_path %>
+<!-- Medidores -->
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Medidores
+  </div>
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+        <thead>
+          <tr>
+            <th>Numero</th>
+            <th>Medicion</th>
+            <th>Estado medidor</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @medidors.each do |medidor| %>
+          <tr>
+            <td><%= medidor.numero %></td>
+            <td><%= medidor.medicion %></td>
+            <td><%= medidor.estado_medidor %></td>
+            <td>
+              <%= link_to medidor do %>
+              <span class="glyphicon glyphicon-eye-open" aria-hidden="true" title="Ver"></span>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to edit_medidor_path(medidor) do %>
+              <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="Editar"></span>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to medidor, method: :delete, data: { confirm: '¿Estás seguro?' } do %>
+              <span class="glyphicon glyphicon-trash" aria-hidden="true" title="Eliminar"></span>
+              <% end %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<!--End Medidores -->

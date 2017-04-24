@@ -21,3 +21,9 @@
 
 en:
   hello: "Hello world"
+  helpers:
+    submit:
+      # This will be the default ones, will take effect if no other
+      # are specifically defined for the models.
+      create: "Guardar %{model}"
+      update: "Editar %{model}"

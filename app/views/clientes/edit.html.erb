@@ -1,6 +1,13 @@
-<h1>Editing Cliente</h1>
+<h1 class="page-header">
+  Editar Cliente
+  <%= link_to clientes_path, class: 'btn btn-default' do %>
+  <span class="glyphicon glyphicon-list-alt"></span>
+  Atrás
+  <% end %>
+  <%= link_to @cliente, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-info-sign"></span>
+    Ver
+  <% end %>
+</h1>
 
 <%= render 'form', cliente: @cliente %>
-
-<%= link_to 'Show', @cliente %> |
-<%= link_to 'Back', clientes_path %>

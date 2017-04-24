@@ -1,29 +1,53 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Ctacteclis</h1>
+<h1 class="page-header">
+  Cuenta Corriente Cliente
+  <%= link_to new_ctactecli_path, class: 'btn btn-default' do %>
+  <span class="glyphicon glyphicon-plus"></span>
+  Nueva Cuenta Corriente
+  <% end %>
+</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Cliente</th>
-      <th>Saldo</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @ctacteclis.each do |ctactecli| %>
-      <tr>
-        <td><%= ctactecli.cliente_id %></td>
-        <td><%= ctactecli.saldo %></td>
-        <td><%= link_to 'Show', ctactecli %></td>
-        <td><%= link_to 'Edit', edit_ctactecli_path(ctactecli) %></td>
-        <td><%= link_to 'Destroy', ctactecli, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Ctactecli', new_ctactecli_path %>
+<!-- Cuenta Corriente Clientes -->
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Cuenta Corriente Clientes
+  </div>
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+        <thead>
+          <tr>
+            <th>Cliente</th>
+            <th>Saldo</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @ctacteclis.each do |ctactecli| %>
+          <tr>
+            <td><%= ctactecli.cliente_id %></td>
+            <td><%= ctactecli.saldo %></td>
+            <td>
+              <%= link_to ctactecli do %>
+              <span class="glyphicon glyphicon-eye-open" aria-hidden="true" title="Ver"></span>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to edit_ctactecli_path(ctactecli) do %>
+              <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="Editar"></span>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to ctactecli, method: :delete, data: { confirm: '¿Estás seguro?' } do %>
+              <span class="glyphicon glyphicon-trash" aria-hidden="true" title="Eliminar"></span>
+              <% end %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<!--End Cuenta Corriente Clientes -->

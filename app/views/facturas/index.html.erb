@@ -1,39 +1,63 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Facturas</h1>
+<h1 class="page-header">
+  Facturas
+  <%= link_to new_factura_path, class: 'btn btn-default' do %>
+  <span class="glyphicon glyphicon-plus"></span>
+  Nueva Factura
+  <% end %>
+</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Cliente</th>
-      <th>Periodo</th>
-      <th>Condicion</th>
-      <th>Fecha</th>
-      <th>Iva</th>
-      <th>Erssan</th>
-      <th>Total</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @facturas.each do |factura| %>
-      <tr>
-        <td><%= factura.cliente_id %></td>
-        <td><%= factura.periodo_id %></td>
-        <td><%= factura.condicion %></td>
-        <td><%= factura.fecha %></td>
-        <td><%= factura.iva %></td>
-        <td><%= factura.erssan %></td>
-        <td><%= factura.total %></td>
-        <td><%= link_to 'Show', factura %></td>
-        <td><%= link_to 'Edit', edit_factura_path(factura) %></td>
-        <td><%= link_to 'Destroy', factura, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Factura', new_factura_path %>
+<!-- Facturas -->
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Facturas
+  </div>
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+        <thead>
+          <tr>
+            <th>Cliente</th>
+            <th>Periodo</th>
+            <th>Condicion</th>
+            <th>Fecha</th>
+            <th>Iva</th>
+            <th>Erssan</th>
+            <th>Total</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @facturas.each do |factura| %>
+          <tr>
+            <td><%= factura.cliente_id %></td>
+            <td><%= factura.periodo_id %></td>
+            <td><%= factura.condicion %></td>
+            <td><%= factura.fecha %></td>
+            <td><%= factura.iva %></td>
+            <td><%= factura.erssan %></td>
+            <td><%= factura.total %></td>
+            <td>
+              <%= link_to factura do %>
+              <span class="glyphicon glyphicon-eye-open" aria-hidden="true" title="Ver"></span>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to edit_factura_path(factura) do %>
+              <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="Editar"></span>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to factura, method: :delete, data: { confirm: '¿Estás seguro?' } do %>
+              <span class="glyphicon glyphicon-trash" aria-hidden="true" title="Eliminar"></span>
+              <% end %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<!--End Facturas -->

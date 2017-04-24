@@ -1,5 +1,9 @@
-<h1>New Cliente</h1>
+<h1 class="page-header">
+  Nuevo Cliente
+  <%= link_to clientes_path, class: 'btn btn-default' do %>
+  <span class="glyphicon glyphicon-list-alt"></span>
+  Atrás
+  <% end %>
+</h1>
 
 <%= render 'form', cliente: @cliente %>
-
-<%= link_to 'Back', clientes_path %>

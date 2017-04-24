@@ -1,31 +1,55 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Periodos</h1>
+<h1 class="page-header">
+  Periodos
+  <%= link_to new_periodo_path, class: 'btn btn-default' do %>
+  <span class="glyphicon glyphicon-plus"></span>
+  Nuevo Periodo
+  <% end %>
+</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Periodo</th>
-      <th>Fecha vencimiento</th>
-      <th>Estado periodo</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @periodos.each do |periodo| %>
-      <tr>
-        <td><%= periodo.periodo %></td>
-        <td><%= periodo.fecha_vencimiento %></td>
-        <td><%= periodo.estado_periodo %></td>
-        <td><%= link_to 'Show', periodo %></td>
-        <td><%= link_to 'Edit', edit_periodo_path(periodo) %></td>
-        <td><%= link_to 'Destroy', periodo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Periodo', new_periodo_path %>
+<!-- Periodos -->
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Periodos
+  </div>
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+        <thead>
+          <tr>
+            <th>Periodo</th>
+            <th>Fecha vencimiento</th>
+            <th>Estado periodo</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @periodos.each do |periodo| %>
+          <tr>
+            <td><%= periodo.periodo %></td>
+            <td><%= periodo.fecha_vencimiento %></td>
+            <td><%= periodo.estado_periodo %></td>
+            <td>
+              <%= link_to periodo do %>
+              <span class="glyphicon glyphicon-eye-open" aria-hidden="true" title="Ver"></span>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to edit_periodo_path(periodo) do %>
+              <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="Editar"></span>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to periodo, method: :delete, data: { confirm: '¿Estás seguro?' } do %>
+              <span class="glyphicon glyphicon-trash" aria-hidden="true" title="Eliminar"></span>
+              <% end %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<!--End Periodos -->

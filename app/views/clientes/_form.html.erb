@@ -11,52 +11,74 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :ci %>
-    <%= f.number_field :ci %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Clientes
   </div>
-
-  <div class="field">
-    <%= f.label :nombre %>
-    <%= f.text_field :nombre %>
+  <div class="panel-body">
+<div class="row">
+<div class="col-md-6">
+  <div class="form-group">
+    <%= f.label :ci, class: "control-label" %>
+    <%= f.number_field :ci, class: "form-control" %>
   </div>
-
-  <div class="field">
-    <%= f.label :direccion %>
-    <%= f.text_field :direccion %>
+</div>
+<div class="col-md-6">
+  <div class="form-group">
+    <%= f.label :nombre, class: "control-label" %>
+    <%= f.text_field :nombre, class: "form-control" %>
   </div>
-
-  <div class="field">
-    <%= f.label :telefono %>
-    <%= f.text_field :telefono %>
+</div>
+<div class="col-md-6">
+  <div class="form-group">
+    <%= f.label :direccion, class: "control-label" %>
+    <%= f.text_field :direccion, class: "form-control" %>
   </div>
-
-  <div class="field">
-    <%= f.label :fecha_contrato %>
-    <%= f.date_select :fecha_contrato %>
+</div>
+<div class="col-md-6">
+  <div class="form-group">
+    <%= f.label :telefono, class: "control-label" %>
+    <%= f.text_field :telefono, class: "form-control" %>
   </div>
-
-  <div class="field">
-    <%= f.label :fecha_conexion %>
-    <%= f.date_select :fecha_conexion %>
+</div>
+<div class="col-md-6">
+  <div class="form-group">
+    <%= f.label :fecha_contrato, class: "control-label" %>
+    <%= f.date_select :fecha_contrato, class: "form-control" %>
   </div>
-
-  <div class="field">
-    <%= f.label :observacion %>
-    <%= f.text_field :observacion %>
+</div>
+<div class="col-md-6"> 
+  <div class="form-group">
+    <%= f.label :fecha_conexion, class: "control-label" %>
+    <%= f.date_select :fecha_conexion, class: "form-control" %>
   </div>
-
-  <div class="field">
-    <%= f.label :medidor_id %>
-    <%= f.number_field :medidor_id %>
+</div>
+<div class="col-md-6">
+  <div class="form-group">
+    <%= f.label :observacion, class: "control-label" %>
+    <%= f.text_field :observacion, class: "form-control" %>
   </div>
-
-  <div class="field">
-    <%= f.label :estado_cuenta %>
+</div>
+<div class="col-md-6">
+  <div class="form-group">
+    <%= f.label :medidor_id, class: "control-label" %>
+    <%= f.number_field :medidor_id, class: "form-control" %>
+  </div>
+</div>  
+ <div class="col-md-6">
+  <div class="form-group">
+    <%= f.label :estado_cuenta, class: "control-label" %>
     <%= f.check_box :estado_cuenta %>
   </div>
+</div>
+
+</div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: 'btn btn-default'%>
+    <%= link_to "Cancelar", clientes_path, class: "btn btn-default" %>
   </div>
 <% end %>
+
+</div>
+</div>

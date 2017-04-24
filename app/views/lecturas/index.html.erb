@@ -1,39 +1,63 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Lecturas</h1>
+<h1 class="page-header">
+  Lecturas
+  <%= link_to new_lectura_path, class: 'btn btn-default' do %>
+  <span class="glyphicon glyphicon-plus"></span>
+  Nueva Lectura
+  <% end %>
+</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Medidor</th>
-      <th>Periodo</th>
-      <th>Fecha</th>
-      <th>Lector</th>
-      <th>Actual</th>
-      <th>Consumo</th>
-      <th>Exceso</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @lecturas.each do |lectura| %>
-      <tr>
-        <td><%= lectura.medidor_id %></td>
-        <td><%= lectura.periodo_id %></td>
-        <td><%= lectura.fecha %></td>
-        <td><%= lectura.lector %></td>
-        <td><%= lectura.actual %></td>
-        <td><%= lectura.consumo %></td>
-        <td><%= lectura.exceso %></td>
-        <td><%= link_to 'Show', lectura %></td>
-        <td><%= link_to 'Edit', edit_lectura_path(lectura) %></td>
-        <td><%= link_to 'Destroy', lectura, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Lectura', new_lectura_path %>
+<!-- Lecturas -->
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Lecturas
+  </div>
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+        <thead>
+          <tr>
+            <th>Medidor</th>
+            <th>Periodo</th>
+            <th>Fecha</th>
+            <th>Lector</th>
+            <th>Actual</th>
+            <th>Consumo</th>
+            <th>Exceso</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @lecturas.each do |lectura| %>
+          <tr>
+            <td><%= lectura.medidor_id %></td>
+            <td><%= lectura.periodo_id %></td>
+            <td><%= lectura.fecha %></td>
+            <td><%= lectura.lector %></td>
+            <td><%= lectura.actual %></td>
+            <td><%= lectura.consumo %></td>
+            <td><%= lectura.exceso %></td>
+            <td>
+              <%= link_to lectura do %>
+              <span class="glyphicon glyphicon-eye-open" aria-hidden="true" title="Ver"></span>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to edit_lectura_path(lectura) do %>
+              <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="Editar"></span>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to lectura, method: :delete, data: { confirm: '¿Estás seguro?' } do %>
+              <span class="glyphicon glyphicon-trash" aria-hidden="true" title="Eliminar"></span>
+              <% end %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<!--End Lecturas -->
