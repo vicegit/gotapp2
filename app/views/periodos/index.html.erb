@@ -14,46 +14,69 @@
     Periodos
   </div>
   <div class="panel-body">
-    <div class="table-responsive">
-      <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-        <thead>
-          <tr>
-            <th>Periodo</th>
-            <th>Fecha de vencimiento</th>
-            <th>Estado periodo</th>
-            <th colspan="3"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @periodos.each do |periodo| %>
-          <tr>
-            <td><%= periodo.periodo.strftime("%m-%Y") %></td>
-            <td><%= periodo.fecha_vencimiento.strftime("%d-%m-%Y") %></td>
-            <% if periodo.estado_periodo == true %>
-            <td>ACTIVO</td>
-            <% else %>
-            <td>INACTIVO</td>
-            <% end %>
-            <td>
-              <%= link_to periodo do %>
-              <span class="glyphicon glyphicon-eye-open" aria-hidden="true" title="Ver"></span>
-              <% end %>
-            </td>
-            <td>
-              <%= link_to edit_periodo_path(periodo) do %>
-              <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="Editar"></span>
-              <% end %>
-            </td>
-            <td>
-              <%= link_to periodo, method: :delete, data: { title: 'Eliminar periodo', confirm:'¿Quieres eliminar este periodo?', commit: 'Eliminar', cancel: 'Cancelar' } do %>
-                <span class="glyphicon glyphicon-trash" aria-hidden="true" title="Eliminar"></span>
-              <% end %>
-            </td>
-          </tr>
+    <table id="tablaperiodo" class="display responsive no-wrap">
+      <thead>
+        <tr>
+          <th>Periodo</th>
+          <th>Fecha de vencimiento</th>
+          <th>Estado periodo</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @periodos.each do |periodo| %>
+        <tr>
+          <td><%= periodo.periodo.strftime("%m-%Y") %></td>
+          <td><%= periodo.fecha_vencimiento.strftime("%d-%m-%Y") %></td>
+          <% if periodo.estado_periodo == true %>
+          <td>ACTIVO</td>
+          <% else %>
+          <td>INACTIVO</td>
           <% end %>
-        </tbody>
-      </table>
-    </div>
+          <td>
+            <%= link_to periodo do %>
+            <span class="glyphicon glyphicon-eye-open" aria-hidden="true" title="Ver"></span>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to edit_periodo_path(periodo) do %>
+            <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="Editar"></span>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to periodo, method: :delete, data: { title: 'Eliminar periodo', confirm:'¿Quieres eliminar este periodo?', commit: 'Eliminar', cancel: 'Cancelar' } do %>
+            <span class="glyphicon glyphicon-trash" aria-hidden="true" title="Eliminar"></span>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
 <!--End Periodos -->
+
+<script type="text/javascript">
+
+$(document).on('turbolinks:load', function() {
+
+  $('#tablaperiodo').DataTable({
+    responsive: true,
+    destroy: true,
+    dom: 'Bfrtip',
+    lengthMenu: [
+    [ 10, 25, 50, -1 ],
+    [ '10 rows', '25 rows', '50 rows', 'Show all' ]
+    ],
+    buttons: [
+    'pageLength', 'copy', 'csv', 'excel', 'pdf', 'print'
+    ]
+  });
+  
+  $('div#tablaperiodo_filter input').addClass('form-control input-sm input-width');
+
+});
+
+</script>

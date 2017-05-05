@@ -14,50 +14,73 @@
     Lecturas
   </div>
   <div class="panel-body">
-    <div class="table-responsive">
-      <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-        <thead>
-          <tr>
-            <th>Medidor</th>
-            <th>Periodo</th>
-            <th>Fecha</th>
-            <th>Lector</th>
-            <th>Actual</th>
-            <th>Consumo</th>
-            <th>Exceso</th>
-            <th colspan="3"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @lecturas.each do |lectura| %>
-          <tr>
-            <td><%= lectura.medidor_id %></td>
-            <td><%= lectura.periodo_id %></td>
-            <td><%= lectura.fecha.strftime("%d-%m-%Y") %></td>
-            <td><%= lectura.lector %></td>
-            <td><%= number_with_delimiter(lectura.actual, delimiter: ".") %></td>
-            <td><%= number_with_delimiter(lectura.consumo, delimiter: ".") %></td>
-            <td><%= number_with_delimiter(lectura.exceso, delimiter: ".") %></td>
-            <td>
-              <%= link_to lectura do %>
-              <span class="glyphicon glyphicon-eye-open" aria-hidden="true" title="Ver"></span>
-              <% end %>
-            </td>
-            <td>
-              <%= link_to edit_lectura_path(lectura) do %>
-              <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="Editar"></span>
-              <% end %>
-            </td>
-            <td>
-              <%= link_to lectura, method: :delete, data: { title: 'Eliminar lectura', confirm:'¿Quieres eliminar esta lectura?', commit: 'Eliminar', cancel: 'Cancelar' } do %>
-                <span class="glyphicon glyphicon-trash" aria-hidden="true" title="Eliminar"></span>
-              <% end %>
-            </td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
+    <table id="tablalectura" class="display responsive no-wrap">
+      <thead>
+        <tr>
+          <th>Medidor</th>
+          <th>Periodo</th>
+          <th>Fecha</th>
+          <th>Lector</th>
+          <th>Actual</th>
+          <th>Consumo</th>
+          <th>Exceso</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @lecturas.each do |lectura| %>
+        <tr>
+          <td><%= lectura.medidor_id %></td>
+          <td><%= lectura.periodo_id %></td>
+          <td><%= lectura.fecha.strftime("%d-%m-%Y") %></td>
+          <td><%= lectura.lector %></td>
+          <td><%= number_with_delimiter(lectura.actual, delimiter: ".") %></td>
+          <td><%= number_with_delimiter(lectura.consumo, delimiter: ".") %></td>
+          <td><%= number_with_delimiter(lectura.exceso, delimiter: ".") %></td>
+          <td>
+            <%= link_to lectura do %>
+            <span class="glyphicon glyphicon-eye-open" aria-hidden="true" title="Ver"></span>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to edit_lectura_path(lectura) do %>
+            <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="Editar"></span>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to lectura, method: :delete, data: { title: 'Eliminar lectura', confirm:'¿Quieres eliminar esta lectura?', commit: 'Eliminar', cancel: 'Cancelar' } do %>
+            <span class="glyphicon glyphicon-trash" aria-hidden="true" title="Eliminar"></span>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
 <!--End Lecturas -->
+
+<script type="text/javascript">
+
+$(document).on('turbolinks:load', function() {
+
+  $('#tablalectura').DataTable({
+    responsive: true,
+    destroy: true,
+    dom: 'Bfrtip',
+    lengthMenu: [
+    [ 10, 25, 50, -1 ],
+    [ '10 rows', '25 rows', '50 rows', 'Show all' ]
+    ],
+    buttons: [
+    'pageLength', 'copy', 'csv', 'excel', 'pdf', 'print'
+    ]
+  });
+  
+  $('div#tablalectura_filter input').addClass('form-control input-sm input-width');
+
+});
+
+</script>

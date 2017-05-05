@@ -14,46 +14,69 @@
     Medidores
   </div>
   <div class="panel-body">
-    <div class="table-responsive">
-      <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-        <thead>
-          <tr>
-            <th>Número</th>
-            <th>Medición</th>
-            <th>Estado medidor</th>
-            <th colspan="3"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @medidors.each do |medidor| %>
-          <tr>
-            <td><%= medidor.numero %></td>
-            <td><%= number_with_delimiter(medidor.medicion, delimiter: ".") %></td>
-            <% if medidor.estado_medidor == true %>
-            <td>ACTIVO</td>
-            <% else %>
-            <td>INACTIVO</td>
-            <% end %>
-            <td>
-              <%= link_to medidor do %>
-              <span class="glyphicon glyphicon-eye-open" aria-hidden="true" title="Ver"></span>
-              <% end %>
-            </td>
-            <td>
-              <%= link_to edit_medidor_path(medidor) do %>
-              <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="Editar"></span>
-              <% end %>
-            </td>
-            <td>
-              <%= link_to medidor, method: :delete, data: { title: 'Eliminar medidor', confirm:'¿Quieres eliminar este medidor?', commit: 'Eliminar', cancel: 'Cancelar' } do %>
-                <span class="glyphicon glyphicon-trash" aria-hidden="true" title="Eliminar"></span>
-              <% end %>
-            </td>
-          </tr>
+    <table id="tablamedidor" class="display responsive no-wrap">
+      <thead>
+        <tr>
+          <th>Número</th>
+          <th>Medición</th>
+          <th>Estado medidor</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @medidors.each do |medidor| %>
+        <tr>
+          <td><%= medidor.numero %></td>
+          <td><%= number_with_delimiter(medidor.medicion, delimiter: ".") %></td>
+          <% if medidor.estado_medidor == true %>
+          <td>ACTIVO</td>
+          <% else %>
+          <td>INACTIVO</td>
           <% end %>
-        </tbody>
-      </table>
-    </div>
+          <td>
+            <%= link_to medidor do %>
+            <span class="glyphicon glyphicon-eye-open" aria-hidden="true" title="Ver"></span>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to edit_medidor_path(medidor) do %>
+            <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="Editar"></span>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to medidor, method: :delete, data: { title: 'Eliminar medidor', confirm:'¿Quieres eliminar este medidor?', commit: 'Eliminar', cancel: 'Cancelar' } do %>
+            <span class="glyphicon glyphicon-trash" aria-hidden="true" title="Eliminar"></span>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
 <!--End Medidores -->
+
+<script type="text/javascript">
+
+$(document).on('turbolinks:load', function() {
+
+  $('#tablamedidor').DataTable({
+    responsive: true,
+    destroy: true,
+    dom: 'Bfrtip',
+    lengthMenu: [
+    [ 10, 25, 50, -1 ],
+    [ '10 rows', '25 rows', '50 rows', 'Show all' ]
+    ],
+    buttons: [
+    'pageLength', 'copy', 'csv', 'excel', 'pdf', 'print'
+    ]
+  });
+  
+  $('div#tablamedidor_filter input').addClass('form-control input-sm input-width');
+
+});
+
+</script>

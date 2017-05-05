@@ -14,81 +14,81 @@
     Clientes
   </div>
   <div class="panel-body">
-      <table id="tablacliente" class="display responsive no-wrap">
-        <thead>
-          <tr>
-            <th>Cédula de identidad Nº</th>
-            <th>Nombre</th>
-            <th>Dirección</th>
-            <th>Teléfono</th>
-            <th>Fecha de contrato</th>
-            <th>Fecha de conexión</th>
-            <th>Observación</th>
-            <th>Medidor</th>
-            <th>Estado cuenta</th>
-            <th></th>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @clientes.each do |cliente| %>
-          <tr>
-            <td><%= number_with_delimiter(cliente.ci, delimiter: ".") %></td>
-            <td><%= cliente.nombre %></td>
-            <td><%= cliente.direccion %></td>
-            <td><%= cliente.telefono %></td>
-            <td><%= cliente.fecha_contrato.strftime("%d-%m-%Y") %></td>
-            <td><%= cliente.fecha_conexion.strftime("%d-%m-%Y") %></td>
-            <td><%= cliente.observacion %></td>
-            <td><%= cliente.medidor_id %></td>
-            <% if cliente.estado_cuenta == true %>
-            <td>ACTIVO</td>
-            <% else %>
-            <td>INACTIVO</td>
-            <% end %>
-            <td>
-              <%= link_to cliente do %>
-              <span class="glyphicon glyphicon-eye-open" aria-hidden="true" title="Ver"></span>
-              <% end %>
-            </td>
-            <td>
-              <%= link_to edit_cliente_path(cliente) do %>
-              <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="Editar"></span>
-              <% end %>
-            </td>
-            <td>
-              <%= link_to cliente, method: :delete, data: { title: 'Eliminar cliente', confirm:'¿Quieres eliminar este cliente?', commit: 'Eliminar', cancel: 'Cancelar' } do %>
-                <span class="glyphicon glyphicon-trash" aria-hidden="true" title="Eliminar"></span>
-              <% end %>
-            </td>
-          </tr>
+    <table id="tablacliente" class="display responsive no-wrap">
+      <thead>
+        <tr>
+          <th>Cédula de identidad Nº</th>
+          <th>Nombre</th>
+          <th>Dirección</th>
+          <th>Teléfono</th>
+          <th>Fecha de contrato</th>
+          <th>Fecha de conexión</th>
+          <th>Observación</th>
+          <th>Medidor</th>
+          <th>Estado cuenta</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @clientes.each do |cliente| %>
+        <tr>
+          <td><%= number_with_delimiter(cliente.ci, delimiter: ".") %></td>
+          <td><%= cliente.nombre %></td>
+          <td><%= cliente.direccion %></td>
+          <td><%= cliente.telefono %></td>
+          <td><%= cliente.fecha_contrato.strftime("%d-%m-%Y") %></td>
+          <td><%= cliente.fecha_conexion.strftime("%d-%m-%Y") %></td>
+          <td><%= cliente.observacion %></td>
+          <td><%= cliente.medidor_id %></td>
+          <% if cliente.estado_cuenta == true %>
+          <td>ACTIVO</td>
+          <% else %>
+          <td>INACTIVO</td>
           <% end %>
-        </tbody>
-      </table>
+          <td>
+            <%= link_to cliente do %>
+            <span class="glyphicon glyphicon-eye-open" aria-hidden="true" title="Ver"></span>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to edit_cliente_path(cliente) do %>
+            <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="Editar"></span>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to cliente, method: :delete, data: { title: 'Eliminar cliente', confirm:'¿Quieres eliminar este cliente?', commit: 'Eliminar', cancel: 'Cancelar' } do %>
+            <span class="glyphicon glyphicon-trash" aria-hidden="true" title="Eliminar"></span>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>
 <!--End Clientes -->
 
 <script type="text/javascript">
 
-  $(document).on('turbolinks:load', function() {
+$(document).on('turbolinks:load', function() {
 
-    $('#tablacliente').DataTable({
-      responsive: true,
-      destroy: true,
-      dom: 'Bfrtip',
-      lengthMenu: [
-        [ 10, 25, 50, -1 ],
-        [ '10 rows', '25 rows', '50 rows', 'Show all' ]
-      ],
-      buttons: [
-        'pageLength', 'copy', 'csv', 'excel', 'pdf', 'print'
-      ]
-    });
-    
-    $('div#tablacliente_filter input').addClass('form-control input-sm input-width');
-
+  $('#tablacliente').DataTable({
+    responsive: true,
+    destroy: true,
+    dom: 'Bfrtip',
+    lengthMenu: [
+    [ 10, 25, 50, -1 ],
+    [ '10 rows', '25 rows', '50 rows', 'Show all' ]
+    ],
+    buttons: [
+    'pageLength', 'copy', 'csv', 'excel', 'pdf', 'print'
+    ]
   });
+  
+  $('div#tablacliente_filter input').addClass('form-control input-sm input-width');
+
+});
 
 </script>
