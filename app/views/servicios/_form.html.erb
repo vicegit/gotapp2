@@ -11,22 +11,37 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :concepto %>
-    <%= f.text_field :concepto %>
-  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      Servicios
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.label :concepto, "Concepto *", class: "control-label" %>
+            <%= f.text_field :concepto, class: "form-control uppercase" %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.label :m3, class: "control-label" %>
+            <%= f.number_field :m3, class: "form-control" %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.label :tarifa, "Tarifa *", class: "control-label" %>
+            <%= f.number_field :tarifa, class: "form-control" %>
+          </div>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :m3 %>
-    <%= f.number_field :m3 %>
-  </div>
-
-  <div class="field">
-    <%= f.label :tarifa %>
-    <%= f.number_field :tarifa %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
+      <div class="actions">
+        <%= f.submit class: 'btn btn-default'%>
+        <%= link_to "Cancelar", servicios_path, class: "btn btn-default" %>
+      </div>
+      
+    </div>
   </div>
 <% end %>

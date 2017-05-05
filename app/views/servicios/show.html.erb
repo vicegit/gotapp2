@@ -1,19 +1,40 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Concepto:</strong>
-  <%= @servicio.concepto %>
-</p>
+<h1 class="page-header">
+  Servicio
+  <%= link_to servicios_path, class: 'btn btn-default' do %>
+  <span class="glyphicon glyphicon-list-alt"></span>
+  Atrás
+  <% end %>
+  <%= link_to edit_servicio_path(@servicio), class: 'btn btn-default' do %>
+  <span class="glyphicon glyphicon-pencil"></span>
+  Editar
+  <% end %>
+</h1>
 
-<p>
-  <strong>M3:</strong>
-  <%= @servicio.m3 %>
-</p>
+<div class="panel panel-default">
+ 	<div class="panel-heading">
+    	Servicio
+  </div>
+	<div class="panel-body">
+  	<div class="row">
+    	<div class="col-md-6">
+				<p>
+  				<strong>Concepto:</strong>
+  				<%= @servicio.concepto %>
+				</p>
 
-<p>
-  <strong>Tarifa:</strong>
-  <%= @servicio.tarifa %>
-</p>
-
-<%= link_to 'Edit', edit_servicio_path(@servicio) %> |
-<%= link_to 'Back', servicios_path %>
+				<p>
+  				<strong>M3:</strong>
+          <%= number_with_delimiter(@servicio.m3, delimiter: ".") %>
+				</p>
+			</div>
+			<div class="col-md-6">
+				<p>
+  			 <strong>Tarifa:</strong>
+  			   <%= number_with_delimiter(@servicio.tarifa, delimiter: ".") %>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,49 +1,75 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Ci:</strong>
-  <%= @cliente.ci %>
-</p>
+<h1 class="page-header">
+  Cliente
+  <%= link_to clientes_path, class: 'btn btn-default' do %>
+  <span class="glyphicon glyphicon-list-alt"></span>
+  Atrás
+  <% end %>
+  <%= link_to edit_cliente_path(@cliente), class: 'btn btn-default' do %>
+  <span class="glyphicon glyphicon-pencil"></span>
+  Editar
+  <% end %>
+</h1>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @cliente.nombre %>
-</p>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Cliente
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-6">
+        <p>
+          <strong>Cédula de identidad Nº:</strong>
+          <%= number_with_delimiter(@cliente.ci, delimiter: ".") %>
+        </p>
 
-<p>
-  <strong>Direccion:</strong>
-  <%= @cliente.direccion %>
-</p>
+        <p>
+          <strong>Nombre:</strong>
+          <%= @cliente.nombre %>
+        </p>
 
-<p>
-  <strong>Telefono:</strong>
-  <%= @cliente.telefono %>
-</p>
+        <p>
+          <strong>Dirección:</strong>
+          <%= @cliente.direccion %>
+        </p>
 
-<p>
-  <strong>Fecha contrato:</strong>
-  <%= @cliente.fecha_contrato %>
-</p>
+        <p>
+          <strong>Teléfono:</strong>
+          <%= @cliente.telefono %>
+        </p>
 
-<p>
-  <strong>Fecha conexion:</strong>
-  <%= @cliente.fecha_conexion %>
-</p>
+        <p>
+          <strong>Observación:</strong>
+          <%= @cliente.observacion %>
+        </p>
+      </div>
 
-<p>
-  <strong>Observacion:</strong>
-  <%= @cliente.observacion %>
-</p>
+      <div class="col-md-6">
+        <p>
+          <strong>Fecha de contrato:</strong>
+          <%= @cliente.fecha_contrato.strftime("%d-%m-%Y") %>
+        </p>
 
-<p>
-  <strong>Medidor:</strong>
-  <%= @cliente.medidor_id %>
-</p>
+        <p>
+          <strong>Fecha de conexión:</strong>
+          <%= @cliente.fecha_conexion.strftime("%d-%m-%Y") %>
+        </p>
 
-<p>
-  <strong>Estado cuenta:</strong>
-  <%= @cliente.estado_cuenta %>
-</p>
+        <p>
+          <strong>Medidor:</strong>
+          <%= @cliente.medidor_id %>
+        </p>
 
-<%= link_to 'Edit', edit_cliente_path(@cliente) %> |
-<%= link_to 'Back', clientes_path %>
+        <p>
+          <strong>Estado cuenta:</strong>
+          <% if @cliente.estado_cuenta == true %>
+            ACTIVO
+          <% else %>
+            INACTIVO
+          <% end %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

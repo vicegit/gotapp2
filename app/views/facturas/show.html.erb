@@ -1,39 +1,60 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Cliente:</strong>
-  <%= @factura.cliente_id %>
-</p>
+<h1 class="page-header">
+  Factura
+  <%= link_to facturas_path, class: 'btn btn-default' do %>
+  <span class="glyphicon glyphicon-list-alt"></span>
+  Atrás
+  <% end %>
+  <%= link_to edit_factura_path(@factura), class: 'btn btn-default' do %>
+  <span class="glyphicon glyphicon-pencil"></span>
+  Editar
+  <% end %>
+</h1>
 
-<p>
-  <strong>Periodo:</strong>
-  <%= @factura.periodo_id %>
-</p>
+<div class="panel panel-default">
+  <div class="panel-heading">
+      Factura
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-6">
+        <p>
+          <strong>Cliente:</strong>
+          <%= @factura.cliente_id %>
+        </p>
 
-<p>
-  <strong>Condicion:</strong>
-  <%= @factura.condicion %>
-</p>
+        <p>
+          <strong>Periodo:</strong>
+          <%= @factura.periodo_id %>
+        </p>
 
-<p>
-  <strong>Fecha:</strong>
-  <%= @factura.fecha %>
-</p>
+        <p>
+          <strong>Condición:</strong>
+          <%= @factura.condicion %>
+        </p>
 
-<p>
-  <strong>Iva:</strong>
-  <%= @factura.iva %>
-</p>
+        <p>
+          <strong>Fecha:</strong>
+          <%= @factura.fecha.strftime("%d-%m-%Y") %>
+        </p>
+      </div>
+      <div class="col-md-6">
+        <p>
+          <strong>Iva:</strong>
+          <%= number_with_delimiter(@factura.iva, delimiter: ".") %>
+        </p>
 
-<p>
-  <strong>Erssan:</strong>
-  <%= @factura.erssan %>
-</p>
+        <p>
+          <strong>Erssan:</strong>
+          <%= number_with_delimiter(@factura.erssan, delimiter: ".") %>
+        </p>
 
-<p>
-  <strong>Total:</strong>
-  <%= @factura.total %>
-</p>
-
-<%= link_to 'Edit', edit_factura_path(@factura) %> |
-<%= link_to 'Back', facturas_path %>
+        <p>
+          <strong>Total:</strong>
+          <%= number_with_delimiter(@factura.total, delimiter: ".") %>
+        </p>  
+      </div>
+    </div>
+  </div>
+</div>

@@ -11,22 +11,37 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :numero %>
-    <%= f.text_field :numero %>
-  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      Medidores
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.label :numero, "Número *",class: "control-label" %>
+            <%= f.text_field :numero, class: "form-control uppercase" %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.label :medicion, "Medición *",class: "control-label" %>
+            <%= f.number_field :medicion, class: "form-control" %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.label :estado_medidor, class: "control-label" %>
+            <%= f.check_box :estado_medidor %>
+          </div>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :medicion %>
-    <%= f.number_field :medicion %>
-  </div>
-
-  <div class="field">
-    <%= f.label :estado_medidor %>
-    <%= f.check_box :estado_medidor %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
+      <div class="actions">
+        <%= f.submit class: 'btn btn-default'%>
+        <%= link_to "Cancelar", medidors_path, class: "btn btn-default" %>
+      </div>
+      
+    </div>
   </div>
 <% end %>

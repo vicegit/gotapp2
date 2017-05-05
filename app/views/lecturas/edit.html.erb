@@ -1,6 +1,13 @@
-<h1>Editing Lectura</h1>
+<h1 class="page-header">
+  Editar Lectura
+  <%= link_to lecturas_path, class: 'btn btn-default' do %>
+  <span class="glyphicon glyphicon-list-alt"></span>
+  Atrás
+  <% end %>
+  <%= link_to @lectura, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-info-sign"></span>
+    Ver
+  <% end %>
+</h1>
 
 <%= render 'form', lectura: @lectura %>
-
-<%= link_to 'Show', @lectura %> |
-<%= link_to 'Back', lecturas_path %>

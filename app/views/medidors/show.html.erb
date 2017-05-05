@@ -1,19 +1,44 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Numero:</strong>
-  <%= @medidor.numero %>
-</p>
+<h1 class="page-header">
+  Medidor
+  <%= link_to medidors_path, class: 'btn btn-default' do %>
+  <span class="glyphicon glyphicon-list-alt"></span>
+  Atrás
+  <% end %>
+  <%= link_to edit_medidor_path(@medidor), class: 'btn btn-default' do %>
+  <span class="glyphicon glyphicon-pencil"></span>
+  Editar
+  <% end %>
+</h1>
 
-<p>
-  <strong>Medicion:</strong>
-  <%= @medidor.medicion %>
-</p>
+<div class="panel panel-default">
+ 	<div class="panel-heading">
+    	Medidor
+  	</div>
+	<div class="panel-body">
+  	<div class="row">
+    	<div class="col-md-6">
+				<p>
+  				<strong>Número:</strong>
+  				<%= @medidor.numero %>
+				</p>
 
-<p>
-  <strong>Estado medidor:</strong>
-  <%= @medidor.estado_medidor %>
-</p>
-
-<%= link_to 'Edit', edit_medidor_path(@medidor) %> |
-<%= link_to 'Back', medidors_path %>
+				<p>
+  				<strong>Medición:</strong>
+          <%= number_with_delimiter(@medidor.medicion, delimiter: ".") %>
+				</p>
+			</div>
+			<div class="col-md-6">
+				<p>
+  				<strong>Estado medidor:</strong>
+          <% if @medidor.estado_medidor == true %>
+            ACTIVO
+          <% else %>
+            INACTIVO
+          <% end %>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>

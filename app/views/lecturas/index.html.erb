@@ -33,11 +33,11 @@
           <tr>
             <td><%= lectura.medidor_id %></td>
             <td><%= lectura.periodo_id %></td>
-            <td><%= lectura.fecha %></td>
+            <td><%= lectura.fecha.strftime("%d-%m-%Y") %></td>
             <td><%= lectura.lector %></td>
-            <td><%= lectura.actual %></td>
-            <td><%= lectura.consumo %></td>
-            <td><%= lectura.exceso %></td>
+            <td><%= number_with_delimiter(lectura.actual, delimiter: ".") %></td>
+            <td><%= number_with_delimiter(lectura.consumo, delimiter: ".") %></td>
+            <td><%= number_with_delimiter(lectura.exceso, delimiter: ".") %></td>
             <td>
               <%= link_to lectura do %>
               <span class="glyphicon glyphicon-eye-open" aria-hidden="true" title="Ver"></span>
@@ -49,8 +49,8 @@
               <% end %>
             </td>
             <td>
-              <%= link_to lectura, method: :delete, data: { confirm: '¿Estás seguro?' } do %>
-              <span class="glyphicon glyphicon-trash" aria-hidden="true" title="Eliminar"></span>
+              <%= link_to lectura, method: :delete, data: { title: 'Eliminar lectura', confirm:'¿Quieres eliminar esta lectura?', commit: 'Eliminar', cancel: 'Cancelar' } do %>
+                <span class="glyphicon glyphicon-trash" aria-hidden="true" title="Eliminar"></span>
               <% end %>
             </td>
           </tr>

@@ -55,3 +55,7 @@ gem 'mysql2'
 gem 'bootstrap-sass', '~> 3.3.6'
 
 gem 'autoprefixer-rails'
+
+gem 'data-confirm-modal'
+
+gem 'jquery-datatables-rails'

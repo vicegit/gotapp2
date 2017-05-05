@@ -19,7 +19,7 @@
         <thead>
           <tr>
             <th>Periodo</th>
-            <th>Fecha vencimiento</th>
+            <th>Fecha de vencimiento</th>
             <th>Estado periodo</th>
             <th colspan="3"></th>
           </tr>
@@ -27,9 +27,13 @@
         <tbody>
           <% @periodos.each do |periodo| %>
           <tr>
-            <td><%= periodo.periodo %></td>
-            <td><%= periodo.fecha_vencimiento %></td>
-            <td><%= periodo.estado_periodo %></td>
+            <td><%= periodo.periodo.strftime("%m-%Y") %></td>
+            <td><%= periodo.fecha_vencimiento.strftime("%d-%m-%Y") %></td>
+            <% if periodo.estado_periodo == true %>
+            <td>ACTIVO</td>
+            <% else %>
+            <td>INACTIVO</td>
+            <% end %>
             <td>
               <%= link_to periodo do %>
               <span class="glyphicon glyphicon-eye-open" aria-hidden="true" title="Ver"></span>
@@ -41,8 +45,8 @@
               <% end %>
             </td>
             <td>
-              <%= link_to periodo, method: :delete, data: { confirm: '¿Estás seguro?' } do %>
-              <span class="glyphicon glyphicon-trash" aria-hidden="true" title="Eliminar"></span>
+              <%= link_to periodo, method: :delete, data: { title: 'Eliminar periodo', confirm:'¿Quieres eliminar este periodo?', commit: 'Eliminar', cancel: 'Cancelar' } do %>
+                <span class="glyphicon glyphicon-trash" aria-hidden="true" title="Eliminar"></span>
               <% end %>
             </td>
           </tr>

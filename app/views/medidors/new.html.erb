@@ -1,5 +1,9 @@
-<h1>New Medidor</h1>
+<h1 class="page-header">
+  Nuevo medidor
+  <%= link_to medidors_path, class: 'btn btn-default' do %>
+  <span class="glyphicon glyphicon-list-alt"></span>
+  Atrás
+  <% end %>
+</h1>
 
 <%= render 'form', medidor: @medidor %>
-
-<%= link_to 'Back', medidors_path %>

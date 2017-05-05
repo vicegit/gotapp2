@@ -1,19 +1,45 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Periodo:</strong>
-  <%= @periodo.periodo %>
-</p>
+<h1 class="page-header">
+  Periodo
+  <%= link_to periodos_path, class: 'btn btn-default' do %>
+  <span class="glyphicon glyphicon-list-alt"></span>
+  Atrás
+  <% end %>
+  <%= link_to edit_periodo_path(@periodo), class: 'btn btn-default' do %>
+  <span class="glyphicon glyphicon-pencil"></span>
+  Editar
+  <% end %>
+</h1>
 
-<p>
-  <strong>Fecha vencimiento:</strong>
-  <%= @periodo.fecha_vencimiento %>
-</p>
+<div class="panel panel-default">
+ 	<div class="panel-heading">
+    Periodo
+  </div>
+	<div class="panel-body">
+  	<div class="row">
+    	<div class="col-md-6">
+				<p>
+  				<strong>Periodo:</strong>
+  				<%= @periodo.periodo.strftime("%m-%Y") %>
+				</p>
 
-<p>
-  <strong>Estado periodo:</strong>
-  <%= @periodo.estado_periodo %>
-</p>
-
-<%= link_to 'Edit', edit_periodo_path(@periodo) %> |
-<%= link_to 'Back', periodos_path %>
+				<p>
+  				<strong>Fecha de vencimiento:</strong>
+  				<%= @periodo.fecha_vencimiento.strftime("%d-%m-%Y") %>
+				</p>
+			</div>
+			<div class="col-md-6">
+				<p>
+  				<strong>Estado periodo:</strong>
+  				<%= @periodo.estado_periodo %>
+          <% if @periodo.estado_periodo == true %>
+            ACTIVO
+          <% else %>
+            INACTIVO
+          <% end %>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>

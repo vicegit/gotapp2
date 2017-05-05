@@ -1,6 +1,13 @@
-<h1>Editing Factura</h1>
+<h1 class="page-header">
+  Editar Factura
+  <%= link_to facturas_path, class: 'btn btn-default' do %>
+  <span class="glyphicon glyphicon-list-alt"></span>
+  Atrás
+  <% end %>
+  <%= link_to @factura, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-info-sign"></span>
+    Ver
+  <% end %>
+</h1>
 
 <%= render 'form', factura: @factura %>
-
-<%= link_to 'Show', @factura %> |
-<%= link_to 'Back', facturas_path %>

@@ -14,4 +14,14 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
+//= require data-confirm-modal
+//= require dataTables/jquery.dataTables
+//= require dataTables/extras/dataTables.responsive
+//= require dataTables.buttons.min
+//= require buttons.flash.min
+//= require jszip.min
+//= require pdfmake.min
+//= require vfs_fonts
+//= require buttons.html5.min
+//= require buttons.print.min
 //= require_tree .

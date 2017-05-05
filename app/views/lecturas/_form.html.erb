@@ -11,42 +11,61 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :medidor_id %>
-    <%= f.number_field :medidor_id %>
-  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      Lecturas
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.label :medidor_id, "Medidor *", class: "control-label" %>
+            <%= f.number_field :medidor_id, class: "form-control" %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.label :periodo_id, "Periodo *", class: "control-label" %>
+            <%= f.number_field :periodo_id, class: "form-control" %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.label :fecha, class: "control-label" %>
+            <%= f.date_field :fecha, class: "form-control" %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.label :lector, class: "control-label" %>
+            <%= f.text_field :lector, class: "form-control uppercase" %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.label :actual, "Actual *",class: "control-label" %>
+            <%= f.number_field :actual, class: "form-control" %>
+          </div>
+        </div>
+        <div class="col-md-6"> 
+          <div class="form-group">
+            <%= f.label :consumo, class: "control-label" %>
+            <%= f.number_field :consumo, class: "form-control" %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.label :exceso, class: "control-label" %>
+            <%= f.number_field :exceso, class: "form-control" %>
+          </div>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :periodo_id %>
-    <%= f.number_field :periodo_id %>
-  </div>
-
-  <div class="field">
-    <%= f.label :fecha %>
-    <%= f.date_select :fecha %>
-  </div>
-
-  <div class="field">
-    <%= f.label :lector %>
-    <%= f.text_field :lector %>
-  </div>
-
-  <div class="field">
-    <%= f.label :actual %>
-    <%= f.number_field :actual %>
-  </div>
-
-  <div class="field">
-    <%= f.label :consumo %>
-    <%= f.number_field :consumo %>
-  </div>
-
-  <div class="field">
-    <%= f.label :exceso %>
-    <%= f.number_field :exceso %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
+      <div class="actions">
+        <%= f.submit class: 'btn btn-default'%>
+        <%= link_to "Cancelar", lecturas_path, class: "btn btn-default" %>
+      </div>
+      
+    </div>
   </div>
 <% end %>

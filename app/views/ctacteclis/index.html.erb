@@ -27,7 +27,7 @@
           <% @ctacteclis.each do |ctactecli| %>
           <tr>
             <td><%= ctactecli.cliente_id %></td>
-            <td><%= ctactecli.saldo %></td>
+            <td><%= number_with_delimiter(ctactecli.saldo, delimiter: ".") %></td>
             <td>
               <%= link_to ctactecli do %>
               <span class="glyphicon glyphicon-eye-open" aria-hidden="true" title="Ver"></span>
@@ -39,8 +39,8 @@
               <% end %>
             </td>
             <td>
-              <%= link_to ctactecli, method: :delete, data: { confirm: '¿Estás seguro?' } do %>
-              <span class="glyphicon glyphicon-trash" aria-hidden="true" title="Eliminar"></span>
+              <%= link_to ctactecli, method: :delete, data: { title: 'Eliminar cuenta corriente', confirm:'¿Quieres eliminar esta cuenta corriente?', commit: 'Eliminar', cancel: 'Cancelar' } do %>
+                <span class="glyphicon glyphicon-trash" aria-hidden="true" title="Eliminar"></span>
               <% end %>
             </td>
           </tr>

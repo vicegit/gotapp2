@@ -1,6 +1,13 @@
-<h1>Editing Ctactecli</h1>
+<h1 class="page-header">
+  Editar Cuenta Corriente Cliente
+  <%= link_to ctacteclis_path, class: 'btn btn-default' do %>
+  <span class="glyphicon glyphicon-list-alt"></span>
+  Atrás
+  <% end %>
+  <%= link_to @ctactecli, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-info-sign"></span>
+    Ver
+  <% end %>
+</h1>
 
 <%= render 'form', ctactecli: @ctactecli %>
-
-<%= link_to 'Show', @ctactecli %> |
-<%= link_to 'Back', ctacteclis_path %>

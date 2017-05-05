@@ -14,34 +14,39 @@
     Clientes
   </div>
   <div class="panel-body">
-    <div class="table-responsive">
-      <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+      <table id="tablacliente" class="display responsive no-wrap">
         <thead>
           <tr>
-            <th>Ci</th>
+            <th>Cédula de identidad Nº</th>
             <th>Nombre</th>
-            <th>Direccion</th>
-            <th>Telefono</th>
-            <th>Fecha contrato</th>
-            <th>Fecha conexion</th>
-            <th>Observacion</th>
+            <th>Dirección</th>
+            <th>Teléfono</th>
+            <th>Fecha de contrato</th>
+            <th>Fecha de conexión</th>
+            <th>Observación</th>
             <th>Medidor</th>
             <th>Estado cuenta</th>
-            <th colspan="3"></th>
+            <th></th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
           <% @clientes.each do |cliente| %>
           <tr>
-            <td><%= cliente.ci %></td>
+            <td><%= number_with_delimiter(cliente.ci, delimiter: ".") %></td>
             <td><%= cliente.nombre %></td>
             <td><%= cliente.direccion %></td>
             <td><%= cliente.telefono %></td>
-            <td><%= cliente.fecha_contrato %></td>
-            <td><%= cliente.fecha_conexion %></td>
+            <td><%= cliente.fecha_contrato.strftime("%d-%m-%Y") %></td>
+            <td><%= cliente.fecha_conexion.strftime("%d-%m-%Y") %></td>
             <td><%= cliente.observacion %></td>
             <td><%= cliente.medidor_id %></td>
-            <td><%= cliente.estado_cuenta %></td>
+            <% if cliente.estado_cuenta == true %>
+            <td>ACTIVO</td>
+            <% else %>
+            <td>INACTIVO</td>
+            <% end %>
             <td>
               <%= link_to cliente do %>
               <span class="glyphicon glyphicon-eye-open" aria-hidden="true" title="Ver"></span>
@@ -53,15 +58,37 @@
               <% end %>
             </td>
             <td>
-              <%= link_to cliente, method: :delete, data: { confirm: '¿Estás seguro?' } do %>
-              <span class="glyphicon glyphicon-trash" aria-hidden="true" title="Eliminar"></span>
+              <%= link_to cliente, method: :delete, data: { title: 'Eliminar cliente', confirm:'¿Quieres eliminar este cliente?', commit: 'Eliminar', cancel: 'Cancelar' } do %>
+                <span class="glyphicon glyphicon-trash" aria-hidden="true" title="Eliminar"></span>
               <% end %>
             </td>
           </tr>
           <% end %>
         </tbody>
       </table>
-    </div>
   </div>
 </div>
 <!--End Clientes -->
+
+<script type="text/javascript">
+
+  $(document).on('turbolinks:load', function() {
+
+    $('#tablacliente').DataTable({
+      responsive: true,
+      destroy: true,
+      dom: 'Bfrtip',
+      lengthMenu: [
+        [ 10, 25, 50, -1 ],
+        [ '10 rows', '25 rows', '50 rows', 'Show all' ]
+      ],
+      buttons: [
+        'pageLength', 'copy', 'csv', 'excel', 'pdf', 'print'
+      ]
+    });
+    
+    $('div#tablacliente_filter input').addClass('form-control input-sm input-width');
+
+  });
+
+</script>

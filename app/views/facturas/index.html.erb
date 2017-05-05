@@ -20,7 +20,7 @@
           <tr>
             <th>Cliente</th>
             <th>Periodo</th>
-            <th>Condicion</th>
+            <th>Condición</th>
             <th>Fecha</th>
             <th>Iva</th>
             <th>Erssan</th>
@@ -34,10 +34,10 @@
             <td><%= factura.cliente_id %></td>
             <td><%= factura.periodo_id %></td>
             <td><%= factura.condicion %></td>
-            <td><%= factura.fecha %></td>
-            <td><%= factura.iva %></td>
-            <td><%= factura.erssan %></td>
-            <td><%= factura.total %></td>
+            <td><%= factura.fecha.strftime("%d-%m-%Y") %></td>
+            <td><%= number_with_delimiter(factura.iva, delimiter: ".") %></td>
+            <td><%= number_with_delimiter(factura.erssan, delimiter: ".") %></td>
+            <td><%= number_with_delimiter(factura.total, delimiter: ".") %></td>
             <td>
               <%= link_to factura do %>
               <span class="glyphicon glyphicon-eye-open" aria-hidden="true" title="Ver"></span>
@@ -49,8 +49,8 @@
               <% end %>
             </td>
             <td>
-              <%= link_to factura, method: :delete, data: { confirm: '¿Estás seguro?' } do %>
-              <span class="glyphicon glyphicon-trash" aria-hidden="true" title="Eliminar"></span>
+              <%= link_to factura, method: :delete, data: { title: 'Eliminar factura', confirm:'¿Quieres eliminar esta factura?', commit: 'Eliminar', cancel: 'Cancelar' } do %>
+                <span class="glyphicon glyphicon-trash" aria-hidden="true" title="Eliminar"></span>
               <% end %>
             </td>
           </tr>

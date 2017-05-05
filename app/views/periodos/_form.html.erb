@@ -11,22 +11,37 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :periodo %>
-    <%= f.date_select :periodo %>
-  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      Periodos
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.label :periodo, "Periodo *", class: "control-label" %>
+            <%= f.date_field :periodo, class: "form-control" %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.label :fecha_vencimiento, "Fecha de vencimiento *", class: "control-label" %>
+            <%= f.date_field :fecha_vencimiento, class: "form-control" %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <%= f.label :estado_periodo, "Estado periodo", class: "control-label" %>
+            <%= f.check_box :estado_periodo %>
+          </div>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :fecha_vencimiento %>
-    <%= f.date_select :fecha_vencimiento %>
-  </div>
-
-  <div class="field">
-    <%= f.label :estado_periodo %>
-    <%= f.check_box :estado_periodo %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
+      <div class="actions">
+        <%= f.submit class: 'btn btn-default'%>
+        <%= link_to "Cancelar", periodos_path, class: "btn btn-default" %>
+      </div>
+      
+    </div>
   </div>
 <% end %>

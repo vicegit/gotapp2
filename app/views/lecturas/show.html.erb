@@ -1,39 +1,60 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Medidor:</strong>
-  <%= @lectura.medidor_id %>
-</p>
+<h1 class="page-header">
+  Lectura
+  <%= link_to lecturas_path, class: 'btn btn-default' do %>
+  <span class="glyphicon glyphicon-list-alt"></span>
+  Atrás
+  <% end %>
+  <%= link_to edit_lectura_path(@lectura), class: 'btn btn-default' do %>
+  <span class="glyphicon glyphicon-pencil"></span>
+  Editar
+  <% end %>
+</h1>
 
-<p>
-  <strong>Periodo:</strong>
-  <%= @lectura.periodo_id %>
-</p>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Lectura
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-6">
+        <p>
+          <strong>Medidor:</strong>
+          <%= @lectura.medidor_id %>
+        </p>
 
-<p>
-  <strong>Fecha:</strong>
-  <%= @lectura.fecha %>
-</p>
+        <p>
+          <strong>Periodo:</strong>
+          <%= @lectura.periodo_id %>
+        </p>
 
-<p>
-  <strong>Lector:</strong>
-  <%= @lectura.lector %>
-</p>
+        <p>
+          <strong>Fecha:</strong>
+          <%= @lectura.fecha.strftime("%d-%m-%Y") %>
+        </p>
 
-<p>
-  <strong>Actual:</strong>
-  <%= @lectura.actual %>
-</p>
+        <p>
+          <strong>Lector:</strong>
+          <%= @lectura.lector %>
+        </p>
+      </div>
+      <div class="col-md-6">
+        <p>
+          <strong>Actual:</strong>
+          <%= number_with_delimiter(@lectura.actual, delimiter: ".") %>
+        </p>
 
-<p>
-  <strong>Consumo:</strong>
-  <%= @lectura.consumo %>
-</p>
+        <p>
+          <strong>Consumo:</strong>
+          <%= number_with_delimiter(@lectura.consumo, delimiter: ".") %>
+        </p>
 
-<p>
-  <strong>Exceso:</strong>
-  <%= @lectura.exceso %>
-</p>
-
-<%= link_to 'Edit', edit_lectura_path(@lectura) %> |
-<%= link_to 'Back', lecturas_path %>
+        <p>
+          <strong>Exceso:</strong>
+          <%= number_with_delimiter(@lectura.exceso, delimiter: ".") %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

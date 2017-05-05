@@ -1,5 +1,9 @@
-<h1>New Ctactecli</h1>
+<h1 class="page-header">
+  Nueva Cuenta Corriente Cliente
+  <%= link_to ctacteclis_path, class: 'btn btn-default' do %>
+  <span class="glyphicon glyphicon-list-alt"></span>
+  Atrás
+  <% end %>
+</h1>
 
 <%= render 'form', ctactecli: @ctactecli %>
-
-<%= link_to 'Back', ctacteclis_path %>

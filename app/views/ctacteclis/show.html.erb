@@ -1,14 +1,35 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Cliente:</strong>
-  <%= @ctactecli.cliente_id %>
-</p>
+<h1 class="page-header">
+  Cuenta Corriente Cliente
+  <%= link_to ctacteclis_path, class: 'btn btn-default' do %>
+  <span class="glyphicon glyphicon-list-alt"></span>
+  Atrás
+  <% end %>
+  <%= link_to edit_ctactecli_path(@ctactecli), class: 'btn btn-default' do %>
+  <span class="glyphicon glyphicon-pencil"></span>
+  Editar
+  <% end %>
+</h1>
 
-<p>
-  <strong>Saldo:</strong>
-  <%= @ctactecli.saldo %>
-</p>
-
-<%= link_to 'Edit', edit_ctactecli_path(@ctactecli) %> |
-<%= link_to 'Back', ctacteclis_path %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+      Cuenta Corriente Cliente
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-6">
+      	<p>
+  			 <strong>Cliente:</strong>
+  			 <%= @ctactecli.cliente_id %>
+		    </p>
+      </div>
+      <div class="col-md-6">
+    	 <p>
+  			 <strong>Saldo:</strong>
+         <%= number_with_delimiter(ctactecli.saldo, delimiter: ".") %>
+		    </p>
+      </div>
+    </div>
+  </div>
+</div>
