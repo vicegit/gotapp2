@@ -10,17 +10,12 @@
 
 <!-- Lecturas -->
 <div class="panel panel-default">
-  <div class="panel-heading">
-    Lecturas
-  </div>
   <div class="panel-body">
     <table id="tablalectura" class="display responsive no-wrap">
       <thead>
         <tr>
           <th>Medidor</th>
           <th>Periodo</th>
-          <th>Fecha</th>
-          <th>Lector</th>
           <th>Actual</th>
           <th>Consumo</th>
           <th>Exceso</th>
@@ -34,8 +29,6 @@
         <tr>
           <td><%= lectura.medidor_id %></td>
           <td><%= lectura.periodo_id %></td>
-          <td><%= lectura.fecha.strftime("%d-%m-%Y") %></td>
-          <td><%= lectura.lector %></td>
           <td><%= number_with_delimiter(lectura.actual, delimiter: ".") %></td>
           <td><%= number_with_delimiter(lectura.consumo, delimiter: ".") %></td>
           <td><%= number_with_delimiter(lectura.exceso, delimiter: ".") %></td>
@@ -67,13 +60,55 @@
 $(document).on('turbolinks:load', function() {
 
   $('#tablalectura').DataTable({
+    
+    "order": [[ 0, "asc" ],[ 1, "desc" ]],
+
+    "language": {
+        "sProcessing":    "Procesando...",
+        "sLengthMenu":    "Mostrar _MENU_ registros",
+        "sZeroRecords":   "No se encontraron resultados",
+        "sEmptyTable":    "Ningún dato disponible en esta tabla",
+        "sInfo":          "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+        "sInfoEmpty":     "Mostrando registros del 0 al 0 de un total de 0 registros",
+        "sInfoFiltered":  "(filtrado de un total de _MAX_ registros)",
+        "sInfoPostFix":   "",
+        "sSearch":        "Buscar:",
+        "sUrl":           "",
+        "sInfoThousands":  ",",
+        "sLoadingRecords": "Cargando...",
+        "oPaginate": {
+            "sFirst":    "Primero",
+            "sLast":    "Último",
+            "sNext":    "Siguiente",
+            "sPrevious": "Anterior"
+        },
+        "oAria": {
+            "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+            "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+        },
+        buttons: {
+                copy: 'Copiar',
+                copyTitle: 'Copiar al portapapeles',
+                copySuccess: {
+                    _: 'Copiados %d filas al portapapeles',
+                    1: 'Copiado 1 fila al portapapeles'
+                },
+                print: 'Imprimir',
+                pageLength: 'Mostrar %d filas'
+            }
+    },
+
     responsive: true,
+    
     destroy: true,
+    
     dom: 'Bfrtip',
+    
     lengthMenu: [
     [ 10, 25, 50, -1 ],
     [ '10 rows', '25 rows', '50 rows', 'Show all' ]
     ],
+    
     buttons: [
     'pageLength', 'copy', 'csv', 'excel', 'pdf', 'print'
     ]
