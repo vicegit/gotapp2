@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h1 class="page-header">
   Periodo
   <%= link_to periodos_path, class: 'btn btn-default' do %>
@@ -13,9 +11,6 @@
 </h1>
 
 <div class="panel panel-default">
- 	<div class="panel-heading">
-    Periodo
-  </div>
 	<div class="panel-body">
   	<div class="row">
     	<div class="col-md-6">
@@ -32,7 +27,6 @@
 			<div class="col-md-6">
 				<p>
   				<strong>Estado periodo:</strong>
-  				<%= @periodo.estado_periodo %>
           <% if @periodo.estado_periodo == true %>
             ACTIVO
           <% else %>

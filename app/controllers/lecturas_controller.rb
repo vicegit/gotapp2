@@ -28,7 +28,7 @@ class LecturasController < ApplicationController
 
     respond_to do |format|
       if @lectura.save
-        format.html { redirect_to @lectura, notice: 'Lectura was successfully created.' }
+        format.html { redirect_to @lectura, notice: 'La lectura fue creada.' }
         format.json { render :show, status: :created, location: @lectura }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class LecturasController < ApplicationController
   def update
     respond_to do |format|
       if @lectura.update(lectura_params)
-        format.html { redirect_to @lectura, notice: 'Lectura was successfully updated.' }
+        format.html { redirect_to @lectura, notice: 'La lectura fue actualizada.' }
         format.json { render :show, status: :ok, location: @lectura }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class LecturasController < ApplicationController
   def destroy
     @lectura.destroy
     respond_to do |format|
-      format.html { redirect_to lecturas_url, notice: 'Lectura was successfully destroyed.' }
+      format.html { redirect_to lecturas_url, notice: 'La lectura fue eliminada.' }
       format.json { head :no_content }
     end
   end

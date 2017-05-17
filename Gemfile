@@ -59,3 +59,7 @@ gem 'autoprefixer-rails'
 gem 'data-confirm-modal'
 
 gem 'jquery-datatables-rails'
+
+gem 'bootstrap-validator-rails'
+
+gem 'toastr-rails'

@@ -28,7 +28,7 @@ class CtacteclisController < ApplicationController
 
     respond_to do |format|
       if @ctactecli.save
-        format.html { redirect_to @ctactecli, notice: 'Ctactecli was successfully created.' }
+        format.html { redirect_to @ctactecli, notice: 'La cuenta corriente fue creada.' }
         format.json { render :show, status: :created, location: @ctactecli }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class CtacteclisController < ApplicationController
   def update
     respond_to do |format|
       if @ctactecli.update(ctactecli_params)
-        format.html { redirect_to @ctactecli, notice: 'Ctactecli was successfully updated.' }
+        format.html { redirect_to @ctactecli, notice: 'La cuenta corriente fue actualizada.' }
         format.json { render :show, status: :ok, location: @ctactecli }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class CtacteclisController < ApplicationController
   def destroy
     @ctactecli.destroy
     respond_to do |format|
-      format.html { redirect_to ctacteclis_url, notice: 'Ctactecli was successfully destroyed.' }
+      format.html { redirect_to ctacteclis_url, notice: 'La cuenta corriente fue eliminada.' }
       format.json { head :no_content }
     end
   end

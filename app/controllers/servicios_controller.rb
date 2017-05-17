@@ -28,7 +28,7 @@ class ServiciosController < ApplicationController
 
     respond_to do |format|
       if @servicio.save
-        format.html { redirect_to @servicio, notice: 'Servicio was successfully created.' }
+        format.html { redirect_to @servicio, notice: 'El servicio fue creado.' }
         format.json { render :show, status: :created, location: @servicio }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class ServiciosController < ApplicationController
   def update
     respond_to do |format|
       if @servicio.update(servicio_params)
-        format.html { redirect_to @servicio, notice: 'Servicio was successfully updated.' }
+        format.html { redirect_to @servicio, notice: 'El servicio fue actualizado.' }
         format.json { render :show, status: :ok, location: @servicio }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class ServiciosController < ApplicationController
   def destroy
     @servicio.destroy
     respond_to do |format|
-      format.html { redirect_to servicios_url, notice: 'Servicio was successfully destroyed.' }
+      format.html { redirect_to servicios_url, notice: 'El servicio fue eliminado.' }
       format.json { head :no_content }
     end
   end

@@ -1,4 +1,4 @@
-<%= form_for(servicio) do |f| %>
+<%= form_for(servicio, html: { id: "servicio_id"}) do |f| %>
   <% if servicio.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(servicio.errors.count, "error") %> prohibited this servicio from being saved:</h2>
@@ -12,9 +12,6 @@
   <% end %>
 
   <div class="panel panel-default">
-    <div class="panel-heading">
-      Servicios
-    </div>
     <div class="panel-body">
       <div class="row">
         <div class="col-md-6">
@@ -39,9 +36,72 @@
 
       <div class="actions">
         <%= f.submit class: 'btn btn-default'%>
-        <%= link_to "Cancelar", servicios_path, class: "btn btn-default" %>
+        <%= link_to "Cancelar", "", type: "reset", class: "btn btn-default" %>
+        <%= link_to "Atrás", servicios_path, class: "btn btn-default" %>
       </div>
       
     </div>
   </div>
 <% end %>
+
+<script type="text/javascript">
+
+$(document).on('turbolinks:load', function() {
+  $('#servicio_id').bootstrapValidator({
+    framework: 'bootstrap',
+    feedbackIcons: {
+      valid: 'glyphicon glyphicon-ok',
+      invalid: 'glyphicon glyphicon-remove',
+      validating: 'glyphicon glyphicon-refresh'
+    },
+    fields: {
+      'servicio[concepto]': {
+        trigger: 'blur',
+        validators: {
+          notEmpty: {
+            message: 'El concepto es requerido'
+          },
+          stringLength: {
+                          min: 6,
+                          max: 100,
+                          message: 'El concepto debe tener entre 6 y 100 caractéres'
+          }
+        }
+      },
+      'servicio[m3]': {
+        trigger: 'blur',
+        validators: {
+          integer: {
+            message: 'No es un número'
+          },
+          notEmpty: {
+            message: 'El m3 es requerido'
+          },
+          stringLength: {
+                          min: 1,
+                          max: 5,
+                          message: 'El m3 debe tener entre 1 y 5 caractéres'
+          }
+        }
+      },
+      'servicio[tarifa]': {
+        trigger: 'blur',
+        validators: {
+          integer: {
+            message: 'No es un número'
+          },
+          notEmpty: {
+            message: 'La tarifa es requerida'
+          },
+          stringLength: {
+                          min: 4,
+                          max: 7,
+                          message: 'La tarifa debe tener entre 4 y 7 caractéres'
+          }
+        }
+      }
+    }  
+  });
+});
+
+</script>

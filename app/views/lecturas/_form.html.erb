@@ -1,4 +1,4 @@
-<%= form_for(lectura) do |f| %>
+<%= form_for(lectura, html: { id: "lectura_id"}) do |f| %>
   <% if lectura.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(lectura.errors.count, "error") %> prohibited this lectura from being saved:</h2>
@@ -12,9 +12,6 @@
   <% end %>
 
   <div class="panel panel-default">
-    <div class="panel-heading">
-      Lecturas
-    </div>
     <div class="panel-body">
       <div class="row">
         <div class="col-md-6">
@@ -25,47 +22,64 @@
         </div>
         <div class="col-md-6">
           <div class="form-group">
-            <%= f.label :periodo_id, "Periodo *", class: "control-label" %>
-            <%= f.number_field :periodo_id, class: "form-control" %>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <%= f.label :fecha, class: "control-label" %>
-            <%= f.date_field :fecha, class: "form-control" %>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <%= f.label :lector, class: "control-label" %>
-            <%= f.text_field :lector, class: "form-control uppercase" %>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form-group">
             <%= f.label :actual, "Actual *",class: "control-label" %>
             <%= f.number_field :actual, class: "form-control" %>
-          </div>
-        </div>
-        <div class="col-md-6"> 
-          <div class="form-group">
-            <%= f.label :consumo, class: "control-label" %>
-            <%= f.number_field :consumo, class: "form-control" %>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form-group">
-            <%= f.label :exceso, class: "control-label" %>
-            <%= f.number_field :exceso, class: "form-control" %>
           </div>
         </div>
       </div>
 
       <div class="actions">
         <%= f.submit class: 'btn btn-default'%>
-        <%= link_to "Cancelar", lecturas_path, class: "btn btn-default" %>
+        <%= link_to "Cancelar", "", type: "reset", class: "btn btn-default" %>
+        <%= link_to "Atrás", lecturas_path, class: "btn btn-default" %>
       </div>
       
     </div>
   </div>
 <% end %>
+
+<script type="text/javascript">
+
+$(document).on('turbolinks:load', function() {
+  $('#lectura_id').bootstrapValidator({
+    framework: 'bootstrap',
+    feedbackIcons: {
+      valid: 'glyphicon glyphicon-ok',
+      invalid: 'glyphicon glyphicon-remove',
+      validating: 'glyphicon glyphicon-refresh'
+    },
+    fields: {
+      'lectura[medidor_id]': {
+        trigger: 'blur',
+        validators: {
+          notEmpty: {
+            message: 'El medidor es requerido'
+          },
+          stringLength: {
+                          min: 1,
+                          max: 8,
+                          message: 'El medidor debe tener entre 1 y 8 caractéres'
+          }
+        }
+      },
+      'lectura[actual]': {
+        trigger: 'blur',
+        validators: {
+          integer: {
+            message: 'No es un número'
+          },
+          notEmpty: {
+            message: 'El actual es requerido'
+          },
+          stringLength: {
+                          min: 1,
+                          max: 5,
+                          message: 'El actual debe tener entre 1 y 5 caractéres'
+          }
+        }
+      }
+    }  
+  });
+});
+
+</script>

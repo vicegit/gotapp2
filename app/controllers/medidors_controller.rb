@@ -28,7 +28,7 @@ class MedidorsController < ApplicationController
 
     respond_to do |format|
       if @medidor.save
-        format.html { redirect_to @medidor, notice: 'Medidor was successfully created.' }
+        format.html { redirect_to @medidor, notice: 'El medidor fue creado.' }
         format.json { render :show, status: :created, location: @medidor }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class MedidorsController < ApplicationController
   def update
     respond_to do |format|
       if @medidor.update(medidor_params)
-        format.html { redirect_to @medidor, notice: 'Medidor was successfully updated.' }
+        format.html { redirect_to @medidor, notice: 'El medidor fue actualizado.' }
         format.json { render :show, status: :ok, location: @medidor }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class MedidorsController < ApplicationController
   def destroy
     @medidor.destroy
     respond_to do |format|
-      format.html { redirect_to medidors_url, notice: 'Medidor was successfully destroyed.' }
+      format.html { redirect_to medidors_url, notice: 'El medidor fue eliminado.' }
       format.json { head :no_content }
     end
   end
