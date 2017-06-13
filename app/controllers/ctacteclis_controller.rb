@@ -69,6 +69,6 @@ class CtacteclisController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ctactecli_params
-      params.require(:ctactecli).permit(:cliente_id, :saldo)
+      params.require(:ctactecli).permit(:cliente_id, :estado_cuenta, :saldo)
     end
 end

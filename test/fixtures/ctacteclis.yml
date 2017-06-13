@@ -2,8 +2,10 @@
 
 one:
   cliente_id: 1
+  estado_cuenta: false
   saldo: 1
 
 two:
   cliente_id: 1
+  estado_cuenta: false
   saldo: 1

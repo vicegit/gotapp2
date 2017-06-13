@@ -12,7 +12,7 @@
     <table id="tablalectura" class="display responsive no-wrap">
       <thead>
         <tr>
-          <th>Medidor</th>
+          <th>Cliente</th>
           <th>Periodo</th>
           <th>Actual</th>
           <th>Consumo</th>
@@ -25,7 +25,7 @@
       <tbody>
         <% @lecturas.each do |lectura| %>
         <tr>
-          <td><%= lectura.medidor_id %></td>
+          <td><%= lectura.cliente_id %></td>
           <td><%= lectura.periodo_id %></td>
           <td><%= number_with_delimiter(lectura.actual, delimiter: ".") %></td>
           <td><%= number_with_delimiter(lectura.consumo, delimiter: ".") %></td>

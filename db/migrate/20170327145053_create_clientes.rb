@@ -9,7 +9,6 @@ class CreateClientes < ActiveRecord::Migration[5.0]
       t.date :fecha_conexion
       t.string :observacion
       t.integer :medidor_id
-      t.boolean :estado_cuenta
 
       t.timestamps
     end

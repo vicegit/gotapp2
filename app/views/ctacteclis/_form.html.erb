@@ -22,6 +22,12 @@
         </div>
         <div class="col-md-6">
           <div class="form-group">
+            <%= f.label :estado_cuenta, "Estado de cuenta", class: "control-label" %>
+            <%= f.check_box :estado_cuenta %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
             <%= f.label :saldo, "Saldo *",class: "control-label" %>
             <%= f.number_field :saldo, class: "form-control" %>
           </div>

@@ -16,8 +16,8 @@
       <div class="row">
         <div class="col-md-6">
           <div class="form-group">
-            <%= f.label :medidor_id, "Medidor *", class: "control-label" %>
-            <%= f.number_field :medidor_id, class: "form-control" %>
+            <%= f.label :cliente_id, "Cliente *", class: "control-label" %>
+            <%= f.number_field :cliente_id, class: "form-control" %>
           </div>
         </div>
         <div class="col-md-6">
@@ -49,7 +49,7 @@ $(document).on('turbolinks:load', function() {
       validating: 'glyphicon glyphicon-refresh'
     },
     fields: {
-      'lectura[medidor_id]': {
+      'lectura[cliente_id]': {
         trigger: 'blur',
         validators: {
           notEmpty: {

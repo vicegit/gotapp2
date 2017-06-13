@@ -17,7 +17,7 @@ class CtacteclisControllerTest < ActionDispatch::IntegrationTest
 
   test "should create ctactecli" do
     assert_difference('Ctactecli.count') do
-      post ctacteclis_url, params: { ctactecli: { cliente_id: @ctactecli.cliente_id, saldo: @ctactecli.saldo } }
+      post ctacteclis_url, params: { ctactecli: { cliente_id: @ctactecli.cliente_id, estado_cuenta: @ctactecli.estado_cuenta, saldo: @ctactecli.saldo } }
     end
 
     assert_redirected_to ctactecli_url(Ctactecli.last)
@@ -34,7 +34,7 @@ class CtacteclisControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update ctactecli" do
-    patch ctactecli_url(@ctactecli), params: { ctactecli: { cliente_id: @ctactecli.cliente_id, saldo: @ctactecli.saldo } }
+    patch ctactecli_url(@ctactecli), params: { ctactecli: { cliente_id: @ctactecli.cliente_id, estado_cuenta: @ctactecli.estado_cuenta, saldo: @ctactecli.saldo } }
     assert_redirected_to ctactecli_url(@ctactecli)
   end
 

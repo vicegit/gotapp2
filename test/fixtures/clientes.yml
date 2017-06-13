@@ -9,7 +9,6 @@ one:
   fecha_conexion: 2017-03-27
   observacion: MyString
   medidor_id: 1
-  estado_cuenta: false
 
 two:
   ci: 1
@@ -20,4 +19,3 @@ two:
   fecha_conexion: 2017-03-27
   observacion: MyString
   medidor_id: 1
-  estado_cuenta: false

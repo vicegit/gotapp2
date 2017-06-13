@@ -17,7 +17,7 @@ class ClientesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create cliente" do
     assert_difference('Cliente.count') do
-      post clientes_url, params: { cliente: { ci: @cliente.ci, direccion: @cliente.direccion, estado_cuenta: @cliente.estado_cuenta, fecha_conexion: @cliente.fecha_conexion, fecha_contrato: @cliente.fecha_contrato, medidor_id: @cliente.medidor_id, nombre: @cliente.nombre, observacion: @cliente.observacion, telefono: @cliente.telefono } }
+      post clientes_url, params: { cliente: { ci: @cliente.ci, direccion: @cliente.direccion, fecha_conexion: @cliente.fecha_conexion, fecha_contrato: @cliente.fecha_contrato, medidor_id: @cliente.medidor_id, nombre: @cliente.nombre, observacion: @cliente.observacion, telefono: @cliente.telefono } }
     end
 
     assert_redirected_to cliente_url(Cliente.last)
@@ -34,7 +34,7 @@ class ClientesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update cliente" do
-    patch cliente_url(@cliente), params: { cliente: { ci: @cliente.ci, direccion: @cliente.direccion, estado_cuenta: @cliente.estado_cuenta, fecha_conexion: @cliente.fecha_conexion, fecha_contrato: @cliente.fecha_contrato, medidor_id: @cliente.medidor_id, nombre: @cliente.nombre, observacion: @cliente.observacion, telefono: @cliente.telefono } }
+    patch cliente_url(@cliente), params: { cliente: { ci: @cliente.ci, direccion: @cliente.direccion, fecha_conexion: @cliente.fecha_conexion, fecha_contrato: @cliente.fecha_contrato, medidor_id: @cliente.medidor_id, nombre: @cliente.nombre, observacion: @cliente.observacion, telefono: @cliente.telefono } }
     assert_redirected_to cliente_url(@cliente)
   end
 

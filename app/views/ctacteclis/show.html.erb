@@ -20,6 +20,16 @@
 		    </p>
       </div>
       <div class="col-md-6">
+        <p>
+         <strong>Estado de cuenta:</strong>
+         <% if @ctactecli.estado_cuenta == true %>
+            ACTIVO
+          <% else %>
+            INACTIVO
+          <% end %>
+        </p>
+      </div>
+      <div class="col-md-6">
     	 <p>
   			 <strong>Saldo:</strong>
          <%= number_with_delimiter(ctactecli.saldo, delimiter: ".") %>
