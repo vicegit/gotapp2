@@ -1,4 +1,7 @@
 class Lectura < ApplicationRecord
+
+	belongs_to :cliente
+	belongs_to :periodo
 	before_save :campos_automatizados, :mayusculas
 
 	def campos_automatizados
@@ -10,4 +13,5 @@ class Lectura < ApplicationRecord
    	def mayusculas
    		#self.lector.upcase!
   	end
+
 end
