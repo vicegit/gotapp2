@@ -17,7 +17,7 @@ class MedidorsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create medidor" do
     assert_difference('Medidor.count') do
-      post medidors_url, params: { medidor: { estado_medidor: @medidor.estado_medidor, medicion: @medidor.medicion, numero: @medidor.numero } }
+      post medidors_url, params: { medidor: { cliente_id: @medidor.cliente_id, estado_medidor: @medidor.estado_medidor, medicion: @medidor.medicion, numero: @medidor.numero } }
     end
 
     assert_redirected_to medidor_url(Medidor.last)
@@ -34,7 +34,7 @@ class MedidorsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update medidor" do
-    patch medidor_url(@medidor), params: { medidor: { estado_medidor: @medidor.estado_medidor, medicion: @medidor.medicion, numero: @medidor.numero } }
+    patch medidor_url(@medidor), params: { medidor: { cliente_id: @medidor.cliente_id, estado_medidor: @medidor.estado_medidor, medicion: @medidor.medicion, numero: @medidor.numero } }
     assert_redirected_to medidor_url(@medidor)
   end
 

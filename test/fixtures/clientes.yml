@@ -8,7 +8,6 @@ one:
   fecha_contrato: 2017-03-27
   fecha_conexion: 2017-03-27
   observacion: MyString
-  medidor_id: 1
 
 two:
   ci: 1
@@ -18,4 +17,3 @@ two:
   fecha_contrato: 2017-03-27
   fecha_conexion: 2017-03-27
   observacion: MyString
-  medidor_id: 1

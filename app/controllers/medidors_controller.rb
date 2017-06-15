@@ -69,6 +69,6 @@ class MedidorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def medidor_params
-      params.require(:medidor).permit(:numero, :medicion, :estado_medidor)
+      params.require(:medidor).permit(:numero, :medicion, :cliente_id, :estado_medidor)
     end
 end

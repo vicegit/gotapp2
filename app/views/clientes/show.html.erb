@@ -33,14 +33,13 @@
           <strong>Teléfono:</strong>
           <%= @cliente.telefono %>
         </p>
+      </div>
 
+      <div class="col-md-6">
         <p>
           <strong>Observación:</strong>
           <%= @cliente.observacion %>
         </p>
-      </div>
-
-      <div class="col-md-6">
         <p>
           <strong>Fecha de contrato:</strong>
           <%= @cliente.fecha_contrato.strftime("%d-%m-%Y") %>
@@ -49,11 +48,6 @@
         <p>
           <strong>Fecha de conexión:</strong>
           <%= @cliente.fecha_conexion.strftime("%d-%m-%Y") %>
-        </p>
-
-        <p>
-          <strong>Medidor:</strong>
-          <%= @cliente.medidor_id %>
         </p>
       </div>
     </div>

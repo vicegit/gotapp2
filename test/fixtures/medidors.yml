@@ -3,9 +3,11 @@
 one:
   numero: MyString
   medicion: 1
+  cliente_id: 1
   estado_medidor: false
 
 two:
   numero: MyString
   medicion: 1
+  cliente_id: 1
   estado_medidor: false

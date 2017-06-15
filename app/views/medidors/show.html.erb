@@ -24,8 +24,13 @@
           <%= number_with_delimiter(@medidor.medicion, delimiter: ".") %>
 				</p>
 			</div>
+
 			<div class="col-md-6">
 				<p>
+          <strong>Cliente:</strong>
+          <%= @medidor.cliente_id %>
+        </p>
+        <p>
   				<strong>Estado medidor:</strong>
           <% if @medidor.estado_medidor == true %>
             ACTIVO

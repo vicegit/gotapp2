@@ -1,6 +1,6 @@
 class Medidor < ApplicationRecord
 
-	has_one :cliente
+	belongs_to :cliente
 	before_save :mayusculas
 
    def mayusculas
