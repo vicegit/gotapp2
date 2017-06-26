@@ -66,6 +66,7 @@ ActiveRecord::Schema.define(version: 20170327162443) do
     t.integer  "cliente_id"
     t.integer  "periodo_id"
     t.date     "fecha"
+    t.string   "numero"
     t.string   "lector"
     t.integer  "actual"
     t.integer  "consumo"

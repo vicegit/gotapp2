@@ -11,5 +11,6 @@ begin
     
     -- Insertar el cliente en la ctactecli.
     insert into ctacteclis (cliente_id, created_at, updated_at) values (cliente, current_timestamp(), current_timestamp());
+
 end
 $$

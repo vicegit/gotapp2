@@ -14,6 +14,7 @@
         <tr>
           <th>Cliente</th>
           <th>Periodo</th>
+          <th>Numero medidor</th>
           <th>Actual</th>
           <th>Consumo</th>
           <th>Exceso</th>
@@ -27,6 +28,7 @@
         <tr>
           <td><%= lectura.cliente_id %></td>
           <td><%= lectura.periodo_id %></td>
+          <td><%= lectura.numero %></td>
           <td><%= number_with_delimiter(lectura.actual, delimiter: ".") %></td>
           <td><%= number_with_delimiter(lectura.consumo, delimiter: ".") %></td>
           <td><%= number_with_delimiter(lectura.exceso, delimiter: ".") %></td>

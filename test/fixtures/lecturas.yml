@@ -4,6 +4,7 @@ one:
   cliente_id: 1
   periodo_id: 1
   fecha: 2017-03-27
+  numero: MyString
   lector: MyString
   actual: 1
   consumo: 1
@@ -13,6 +14,7 @@ two:
   cliente_id: 1
   periodo_id: 1
   fecha: 2017-03-27
+  numero: MyString
   lector: MyString
   actual: 1
   consumo: 1

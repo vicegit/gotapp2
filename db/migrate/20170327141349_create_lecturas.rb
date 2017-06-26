@@ -4,6 +4,7 @@ class CreateLecturas < ActiveRecord::Migration[5.0]
       t.integer :cliente_id
       t.integer :periodo_id
       t.date :fecha
+      t.string :numero
       t.string :lector
       t.integer :actual
       t.integer :consumo

@@ -14,8 +14,9 @@ class Cliente < ApplicationRecord
    end
 
    	def generarctactecli
-   		puts 'hola mundo'
+   		#puts 'hola mundo'
 		ActiveRecord::Base.connection.execute("CALL generarctactecli")
+		#ActiveRecord::Base.connection.execute("CALL generarctactecli ('#{nombre}')")
 	end
 
 end

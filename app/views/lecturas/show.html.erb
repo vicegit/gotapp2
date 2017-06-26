@@ -30,11 +30,16 @@
         </p>
 
         <p>
-          <strong>Lector:</strong>
-          <%= @lectura.lector %>
+          <strong>Número medidor:</strong>
+          <%= @lectura.numero %>
         </p>
       </div>
       <div class="col-md-6">
+        <p>
+          <strong>Lector:</strong>
+          <%= @lectura.lector %>
+        </p>
+        
         <p>
           <strong>Actual:</strong>
           <%= number_with_delimiter(@lectura.actual, delimiter: ".") %>

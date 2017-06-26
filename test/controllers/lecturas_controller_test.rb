@@ -17,7 +17,7 @@ class LecturasControllerTest < ActionDispatch::IntegrationTest
 
   test "should create lectura" do
     assert_difference('Lectura.count') do
-      post lecturas_url, params: { lectura: { actual: @lectura.actual, consumo: @lectura.consumo, exceso: @lectura.exceso, fecha: @lectura.fecha, lector: @lectura.lector, cliente_id: @lectura.cliente_id, periodo_id: @lectura.periodo_id } }
+      post lecturas_url, params: { lectura: { actual: @lectura.actual, cliente_id: @lectura.cliente_id, consumo: @lectura.consumo, exceso: @lectura.exceso, fecha: @lectura.fecha, lector: @lectura.lector, numero: @lectura.numero, periodo_id: @lectura.periodo_id } }
     end
 
     assert_redirected_to lectura_url(Lectura.last)
@@ -34,7 +34,7 @@ class LecturasControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update lectura" do
-    patch lectura_url(@lectura), params: { lectura: { actual: @lectura.actual, consumo: @lectura.consumo, exceso: @lectura.exceso, fecha: @lectura.fecha, lector: @lectura.lector, cliente_id: @lectura.cliente_id, periodo_id: @lectura.periodo_id } }
+    patch lectura_url(@lectura), params: { lectura: { actual: @lectura.actual, cliente_id: @lectura.cliente_id, consumo: @lectura.consumo, exceso: @lectura.exceso, fecha: @lectura.fecha, lector: @lectura.lector, numero: @lectura.numero, periodo_id: @lectura.periodo_id } }
     assert_redirected_to lectura_url(@lectura)
   end
 
