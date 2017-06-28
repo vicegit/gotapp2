@@ -24,17 +24,29 @@ class LecturasController < ApplicationController
   # POST /lecturas
   # POST /lecturas.json
   def create
-    @lectura = Lectura.new(lectura_params)
+    
+    lectura_params
+    numero = params[:lectura][:numero]
+    actual = params[:lectura][:actual]
+    Lectura.crearlectura(numero.upcase, actual)
+    
+    #prueba = Lectura.generarlectura
+    #if prueba == false
+      #flash.notice = "Is true"
+      #puts 'hola mundo'
+    #end
 
-    respond_to do |format|
-      if @lectura.save
-        format.html { redirect_to @lectura, notice: 'La lectura fue creada.' }
-        format.json { render :show, status: :created, location: @lectura }
-      else
-        format.html { render :new }
-        format.json { render json: @lectura.errors, status: :unprocessable_entity }
-      end
-    end
+    #@lectura = Lectura.new(lectura_params)
+
+    #respond_to do |format|
+      #if @lectura.save
+        #format.html { redirect_to @lectura, notice: 'La lectura fue creada.' }
+        #format.json { render :show, status: :created, location: @lectura }
+      #else
+        #format.html { render :new }
+        #format.json { render json: @lectura.errors, status: :unprocessable_entity }
+      #end
+    #end
   end
 
   # PATCH/PUT /lecturas/1

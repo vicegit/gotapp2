@@ -7,16 +7,15 @@ class Cliente < ApplicationRecord
 	before_save :mayusculas
 	after_save :generarctactecli
 
-   def mayusculas
-      self.nombre.upcase!
-      self.direccion.upcase!
-      self.observacion.upcase!
-   end
+	private
+   		def mayusculas
+      		self.nombre.upcase!
+      		self.direccion.upcase!
+      		self.observacion.upcase!
+   		end
 
-   	def generarctactecli
-   		#puts 'hola mundo'
-		ActiveRecord::Base.connection.execute("CALL generarctactecli")
-		#ActiveRecord::Base.connection.execute("CALL generarctactecli ('#{nombre}')")
-	end
+   		def generarctactecli
+   			ActiveRecord::Base.connection.execute("CALL generarctactecli")
+		end
 
 end
