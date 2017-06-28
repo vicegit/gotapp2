@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root 'clientes#index'
   resources :clientes
   resources :ctacteclis
   resources :facturas
@@ -7,5 +8,5 @@ Rails.application.routes.draw do
   resources :medidors
   resources :periodos
   resources :servicios
-  root 'clientes#index'
+  resources :reportes, only: [:index]
 end

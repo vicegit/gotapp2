@@ -102,8 +102,8 @@
             Pagos
             <% end %>
           </li>
-          <li>
-            <%= link_to  do %>
+          <li class="<%= 'active-menu' if current_page?(reportes_path) %>">
+            <%= link_to reportes_path do %>
             <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
             Reportes
             <% end %>
