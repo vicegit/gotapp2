@@ -3,11 +3,10 @@ class Lectura < ApplicationRecord
 	#belongs_to :cliente
 	#belongs_to :periodo
 
-  	private
-  	def self.crearlectura(numero, actual)
-		ActiveRecord::Base.connection.execute("CALL crearlectura ('#{numero}', #{actual})")
-		#return true
-	end
+  	#private
+  	#def self.crearlectura(numero, actual)
+		#ActiveRecord::Base.connection.exec_query("CALL crearlectura ('#{numero}', #{actual}, @alerta)")
+	#end
   	
   	#def mayusculas
    		#self.lector.upcase!

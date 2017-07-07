@@ -31,6 +31,14 @@ body {
     min-height:1200px;
 }
 
+.text-center {
+    text-align:center;
+}
+
+.no-boder {
+    border:1px solid #f3f3f3;
+}
+
 h1, .h1, h2, .h2, h3, .h3 {
 margin-top: 7px;
 margin-bottom: -5px;
@@ -59,6 +67,10 @@ p {
     display: inline-block;
 }
 
+.glisize {
+    font-size: 75px;
+}
+
 /*----------------------------------------------
    DASHBOARD STYLES    
 ------------------------------------------------*/
@@ -85,6 +97,17 @@ font-weight:bold;
 
 footer p{
 font-size: 14px;
+}
+
+.bg-color-green {
+background-color: #fff;
+color: #5cb85c;
+}
+
+.back-footer-green {
+background-color: #5cb85c;
+color:#fff;
+border-top: 0px solid #fff;
 }
 
 /*----------------------------------------------

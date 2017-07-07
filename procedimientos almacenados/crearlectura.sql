@@ -1,7 +1,9 @@
--- call crearlectura();
+-- set @alerta="";
+-- call crearlectura('ASD001', 40, @alerta);
+-- select @alerta;
 drop procedure if exists crearlectura;
 DELIMITER $$
-create PROCEDURE crearlectura(in medidor varchar(255), in lecturaactual int)
+create PROCEDURE crearlectura(in medidor varchar(255), in lecturaactual int, out alerta int)
 begin
 
     -- Declaración de variables.
@@ -26,9 +28,15 @@ begin
 		set consumoexceso = 0;
 	end if;
 
-	-- Actualizaciones
-	insert into lecturas (cliente_id, periodo_id, fecha, numero, actual, consumo, exceso, created_at, updated_at) values (cliente, periodo, current_date(), medidor, lecturaactual, consumototal, consumoexceso, current_timestamp(), current_timestamp());
-	update medidors set medicion=lecturaactual where (medidors.numero=medidor);
-
+    -- Iniciamos la transacción para insertar lecturas y actualizar medidores.
+	START TRANSACTION;
+		-- Cambiamos el commit automatico a apagado
+		set autocommit = 0;
+		insert into lecturas (cliente_id, periodo_id, fecha, numero, actual, consumo, exceso, created_at, updated_at) values (cliente, periodo, current_date(), medidor, lecturaactual, consumototal, consumoexceso, current_timestamp(), current_timestamp());
+		update medidors set medicion=lecturaactual where (medidors.numero=medidor);
+	COMMIT;
+    -- Retornamos la alerta exitosa.
+	set alerta = 25;
+    select alerta;
 end
 $$

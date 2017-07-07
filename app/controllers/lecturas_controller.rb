@@ -24,18 +24,51 @@ class LecturasController < ApplicationController
   # POST /lecturas
   # POST /lecturas.json
   def create
-    
-    lectura_params
-    numero = params[:lectura][:numero]
-    actual = params[:lectura][:actual]
-    Lectura.crearlectura(numero.upcase, actual)
-    
-    #prueba = Lectura.generarlectura
-    #if prueba == false
-      #flash.notice = "Is true"
-      #puts 'hola mundo'
-    #end
+    #Parámetros permitidos.
+      lectura_params
 
+    #Asignación de variables.
+      numero = params[:lectura][:numero].upcase
+      actual = params[:lectura][:actual].to_i
+      medidor = Medidor.find_by(numero: numero)
+      periodo = Periodo.last
+      consumominimo = Servicio.find_by(id: 1)
+
+    #Cálculos.
+      consumototal = actual - medidor.medicion
+      consumototal = actual - medidor.medicion
+      if consumototal > consumominimo.m3 then
+        consumoexceso = consumototal - consumominimo.m3
+      else
+        consumoexceso = 0
+      end
+
+    #Editar lectura.
+      lectura = Lectura.new
+      lectura.cliente_id = medidor.cliente_id
+      lectura.periodo_id = periodo.id
+      lectura.fecha = Date.today
+      lectura.numero = numero
+      lectura.actual = actual
+      lectura.consumo = consumototal
+      lectura.exceso = consumoexceso
+      #lectura.created_at = DateTime.now
+      #lectura.updated_at = DateTime.now
+
+    #Guardar lectura.
+      if lectura.save
+        medidor.medicion = actual
+        #medidor.updated_at = DateTime.now
+        medidor.save
+        puts'Lectura guardada'
+      else
+        puts'Lectura no guardada'
+      end
+
+    #Procedimiento almacenado
+      #prueba = Lectura.crearlectura(numero.upcase, actual)
+
+    #Lectura original
     #@lectura = Lectura.new(lectura_params)
 
     #respond_to do |format|
