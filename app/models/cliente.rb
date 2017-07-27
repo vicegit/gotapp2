@@ -5,7 +5,6 @@ class Cliente < ApplicationRecord
 	has_many :ctacteclis
 	has_one :medidor
 	before_save :mayusculas
-	after_save :generarctactecli
 
 	private
    		def mayusculas
@@ -13,9 +12,5 @@ class Cliente < ApplicationRecord
       		self.direccion.upcase!
       		self.observacion.upcase!
    		end
-
-   		def generarctactecli
-   			ActiveRecord::Base.connection.execute("CALL generarctactecli")
-		end
 
 end

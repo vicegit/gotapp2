@@ -16,9 +16,10 @@
       <div class="col-md-6">
       	<p>
   			 <strong>Cliente:</strong>
-  			 <%= @ctactecli.cliente_id %>
+  			 <%= @ctactecli.cliente.nombre %>
 		    </p>
       </div>
+
       <div class="col-md-6">
         <p>
          <strong>Estado de cuenta:</strong>
@@ -29,6 +30,30 @@
           <% end %>
         </p>
       </div>
+
+      <div class="col-md-12 table-responsive">
+        <table class="table table-striped table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>Fecha detalle</th>
+              <th>Tipo detalle</th>
+              <th>Debe</th>
+              <th>Haber</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @detallescta.each do |detalle| -%>
+              <tr>
+                <td><%= detalle.fechadetalle %></td>
+                <td><%= detalle.tipodetalle %></td>
+                <td><%= number_with_delimiter(detalle.debe, delimiter: ".") %></td>
+                <td><%= number_with_delimiter(detalle.haber, delimiter: ".") %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+
       <div class="col-md-6">
     	 <p>
   			 <strong>Saldo:</strong>

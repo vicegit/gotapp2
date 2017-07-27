@@ -26,8 +26,8 @@
       <tbody>
         <% @lecturas.each do |lectura| %>
         <tr>
-          <td><%= lectura.cliente_id %></td>
-          <td><%= lectura.periodo_id %></td>
+          <td><%= lectura.cliente.nombre %></td>
+          <td><%= lectura.periodo.periodo.strftime("%m-%Y") %></td>
           <td><%= lectura.numero %></td>
           <td><%= number_with_delimiter(lectura.actual, delimiter: ".") %></td>
           <td><%= number_with_delimiter(lectura.consumo, delimiter: ".") %></td>

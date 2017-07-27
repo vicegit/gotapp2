@@ -23,7 +23,7 @@
       <tbody>
         <% @ctacteclis.each do |ctactecli| %>
         <tr>
-          <td><%= ctactecli.cliente_id %></td>
+          <td><%= ctactecli.cliente.nombre %></td>
           <% if ctactecli.estado_cuenta == true %>
           <td>ACTIVO</td>
           <% else %>

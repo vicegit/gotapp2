@@ -4,7 +4,7 @@ class MedidorsController < ApplicationController
   # GET /medidors
   # GET /medidors.json
   def index
-    @medidors = Medidor.all
+    @medidors = Medidor.includes(:cliente).all
   end
 
   # GET /medidors/1

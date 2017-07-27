@@ -1,9 +1,16 @@
 <h1 class="page-header">
   Facturas
+
+  <%= link_to facturas_facturar_path, method: :post, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    Crear facturas
+  <% end %>
+
   <%= link_to new_factura_path, class: 'btn btn-default' do %>
   <span class="glyphicon glyphicon-plus"></span>
   Nueva Factura
   <% end %>
+
 </h1>
 
 <!-- Facturas -->

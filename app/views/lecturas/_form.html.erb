@@ -1,4 +1,4 @@
-<%= form_for(lectura, html: { id: "lectura_id"}) do |f| %>
+<%= form_for(lectura, remote: true, html: { id: "lectura_id"}) do |f| %>
   <% if lectura.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(lectura.errors.count, "error") %> prohibited this lectura from being saved:</h2>
@@ -41,7 +41,7 @@
 <script type="text/javascript">
 
 $(document).on('turbolinks:load', function() {
-  $('#lectura_id').bootstrapValidator({
+  $('#cambiar').bootstrapValidator({
     framework: 'bootstrap',
     feedbackIcons: {
       valid: 'glyphicon glyphicon-ok',

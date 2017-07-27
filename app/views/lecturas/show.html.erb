@@ -16,12 +16,12 @@
       <div class="col-md-6">
         <p>
           <strong>Cliente:</strong>
-          <%= @lectura.cliente_id %>
+          <%= @lectura.cliente.nombre %>
         </p>
 
         <p>
           <strong>Periodo:</strong>
-          <%= @lectura.periodo_id %>
+          <%= @lectura.periodo.periodo.strftime("%m-%Y") %>
         </p>
 
         <p>

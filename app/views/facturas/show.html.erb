@@ -13,42 +13,74 @@
 <div class="panel panel-default">
   <div class="panel-body">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-4">
         <p>
           <strong>Cliente:</strong>
-          <%= @factura.cliente_id %>
+          <%= @factura.cliente.nombre %>
         </p>
+      </div>
 
+      <div class="col-md-4">
         <p>
           <strong>Periodo:</strong>
-          <%= @factura.periodo_id %>
+          <%= @factura.periodo.periodo.strftime("%m-%Y") %>
         </p>
+      </div>
 
+      <div class="col-md-4">
         <p>
           <strong>Condición:</strong>
           <%= @factura.condicion %>
         </p>
+      </div>
 
+      <div class="col-md-4">
         <p>
           <strong>Fecha:</strong>
           <%= @factura.fecha.strftime("%d-%m-%Y") %>
         </p>
       </div>
-      <div class="col-md-6">
+
+      <div class="col-md-12 table-responsive">
+        <table class="table table-striped table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>Concepto</th>
+              <th>Tarifa</th>
+              <th>Subtotal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @detallesfac.each do |detalle| -%>
+              <tr>  
+                <td><%= detalle.servicio.concepto %></td>
+                <td><%= number_with_delimiter(detalle.servicio.tarifa, delimiter: ".") %></td>
+                <td><%= number_with_delimiter(detalle.subtotal, delimiter: ".") %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="col-md-4">
         <p>
           <strong>Iva:</strong>
           <%= number_with_delimiter(@factura.iva, delimiter: ".") %>
         </p>
+      </div>
 
+      <div class="col-md-4">
         <p>
           <strong>Erssan:</strong>
           <%= number_with_delimiter(@factura.erssan, delimiter: ".") %>
         </p>
+      </div>
 
+      <div class="col-md-4">
         <p>
           <strong>Total:</strong>
           <%= number_with_delimiter(@factura.total, delimiter: ".") %>
-        </p>  
+        </p>
       </div>
     </div>
   </div>

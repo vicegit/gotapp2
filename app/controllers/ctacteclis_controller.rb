@@ -4,12 +4,13 @@ class CtacteclisController < ApplicationController
   # GET /ctacteclis
   # GET /ctacteclis.json
   def index
-    @ctacteclis = Ctactecli.all
+    @ctacteclis = Ctactecli.includes(:cliente).all
   end
 
   # GET /ctacteclis/1
   # GET /ctacteclis/1.json
   def show
+    @detallescta = Detallectactecli.where(ctactecli_id: @ctactecli.id)
   end
 
   # GET /ctacteclis/new

@@ -26,7 +26,7 @@
         <tr>
           <td><%= medidor.numero %></td>
           <td><%= number_with_delimiter(medidor.medicion, delimiter: ".") %></td>
-          <td><%= medidor.cliente_id %></td>
+          <td><%= medidor.cliente.nombre %></td>
           <% if medidor.estado_medidor == true %>
           <td>ACTIVO</td>
           <% else %>
@@ -61,7 +61,7 @@ $(document).on('turbolinks:load', function() {
 
   $('#tablamedidor').DataTable({
     
-    "order": [ 0, "asc" ],
+    "order": [ 2, "asc" ],
 
     "language": {
         "sProcessing":    "Procesando...",

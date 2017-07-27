@@ -1,9 +1,9 @@
 class Lectura < ApplicationRecord
 
-	#belongs_to :cliente
-	#belongs_to :periodo
+	belongs_to :cliente
+	belongs_to :periodo
 
-  	#private
+  	private
   	#def self.crearlectura(numero, actual)
 		#ActiveRecord::Base.connection.exec_query("CALL crearlectura ('#{numero}', #{actual}, @alerta)")
 	#end

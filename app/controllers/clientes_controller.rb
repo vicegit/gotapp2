@@ -28,6 +28,12 @@ class ClientesController < ApplicationController
 
     respond_to do |format|
       if @cliente.save
+        
+        id = Cliente.last.id
+        ctactecli = Ctactecli.new
+        ctactecli.cliente_id = id
+        ctactecli.save
+
         format.html { redirect_to @cliente, notice: 'El cliente fue creado.' }
         format.json { render :show, status: :created, location: @cliente }
       else

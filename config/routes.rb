@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :periodos
   resources :servicios
   resources :reportes, only: [:index]
+  post 'facturas/facturar'
 end

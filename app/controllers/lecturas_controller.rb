@@ -4,7 +4,7 @@ class LecturasController < ApplicationController
   # GET /lecturas
   # GET /lecturas.json
   def index
-    @lecturas = Lectura.all
+    @lecturas = Lectura.includes(:cliente, :periodo).all
   end
 
   # GET /lecturas/1
@@ -52,34 +52,22 @@ class LecturasController < ApplicationController
       lectura.actual = actual
       lectura.consumo = consumototal
       lectura.exceso = consumoexceso
-      #lectura.created_at = DateTime.now
-      #lectura.updated_at = DateTime.now
 
     #Guardar lectura.
-      if lectura.save
-        medidor.medicion = actual
-        #medidor.updated_at = DateTime.now
-        medidor.save
-        puts'Lectura guardada'
-      else
-        puts'Lectura no guardada'
+      respond_to do |format|
+        if lectura.save
+          medidor.medicion = actual
+          medidor.save
+          puts'Lectura guardada'
+          format.js { }
+          #format.html { redirect_to @lectura, notice: 'La lectura fue creada.' }
+          #format.json { render :show, status: :created, location: @lectura }
+        else
+          puts'Lectura no guardada'
+          #format.html { render :new }
+          #format.json { render json: @lectura.errors, status: :unprocessable_entity }
+        end
       end
-
-    #Procedimiento almacenado
-      #prueba = Lectura.crearlectura(numero.upcase, actual)
-
-    #Lectura original
-    #@lectura = Lectura.new(lectura_params)
-
-    #respond_to do |format|
-      #if @lectura.save
-        #format.html { redirect_to @lectura, notice: 'La lectura fue creada.' }
-        #format.json { render :show, status: :created, location: @lectura }
-      #else
-        #format.html { render :new }
-        #format.json { render json: @lectura.errors, status: :unprocessable_entity }
-      #end
-    #end
   end
 
   # PATCH/PUT /lecturas/1
