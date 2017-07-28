@@ -17,19 +17,19 @@
         <div class="col-md-6">
           <div class="form-group">
             <%= f.label :numero, "Número *",class: "control-label" %>
-            <%= f.text_field :numero, class: "form-control uppercase" %>
+            <%= f.text_field :numero, required: true, minlength: 1, maxlength: 8, class: "form-control uppercase" %>
           </div>
         </div>
         <div class="col-md-6">
           <div class="form-group">
             <%= f.label :medicion, "Medición *",class: "control-label" %>
-            <%= f.number_field :medicion, class: "form-control" %>
+            <%= f.number_field :medicion, required: true, minlength: 1, maxlength: 5, class: "form-control" %>
           </div>
         </div>
         <div class="col-md-6">
           <div class="form-group">
             <%= f.label :cliente_id, "Cliente", class: "control-label" %>
-            <%= f.number_field :cliente_id, class: "form-control" %>
+            <%= f.number_field :cliente_id, required: true, minlength: 1, maxlength: 7, class: "form-control" %>
           </div>
         </div>
         <div class="col-md-6">
@@ -49,57 +49,3 @@
     </div>
   </div>
 <% end %>
-
-<script type="text/javascript">
-
-$(document).on('turbolinks:load', function() {
-  $('#medidor_id').bootstrapValidator({
-    framework: 'bootstrap',
-    feedbackIcons: {
-      valid: 'glyphicon glyphicon-ok',
-      invalid: 'glyphicon glyphicon-remove',
-      validating: 'glyphicon glyphicon-refresh'
-    },
-    fields: {
-      'medidor[numero]': {
-        trigger: 'blur',
-        validators: {
-          notEmpty: {
-            message: 'El número es requerido'
-          },
-          stringLength: {
-                          min: 1,
-                          max: 8,
-                          message: 'El número debe tener entre 1 y 8 caractéres'
-          }
-        }
-      },
-      'medidor[medicion]': {
-        trigger: 'blur',
-        validators: {
-          integer: {
-            message: 'No es un número'
-          },
-          notEmpty: {
-            message: 'La medición es requerida'
-          },
-          stringLength: {
-                          min: 1,
-                          max: 5,
-                          message: 'La medición debe tener entre 1 y 5 caractéres'
-          }
-        }
-      },
-      'medidor[cliente_id]': {
-        trigger: 'blur',
-        validators: {
-          notEmpty: {
-            message: 'El cliente es requerido'
-          }
-        }
-      }
-    }  
-  });
-});
-
-</script>

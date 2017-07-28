@@ -17,7 +17,7 @@
         <div class="col-md-6">
           <div class="form-group">
             <%= f.label :cliente_id ,"Cliente *", class: "control-label" %>
-            <%= f.number_field :cliente_id, class: "form-control" %>
+            <%= f.number_field :cliente_id, required: true, minlength: 1, maxlength: 7, class: "form-control" %>
           </div>
         </div>
         <div class="col-md-6">
@@ -29,7 +29,7 @@
         <div class="col-md-6">
           <div class="form-group">
             <%= f.label :saldo, "Saldo *",class: "control-label" %>
-            <%= f.number_field :saldo, class: "form-control" %>
+            <%= f.number_field :saldo, required: true, minlength: 1, maxlength: 7, class: "form-control" %>
           </div>
         </div>
       </div>
@@ -43,52 +43,3 @@
     </div>
   </div>
 <% end %>
-
-<script type="text/javascript">
-
-$(document).on('turbolinks:load', function() {
-  $('#ctactecli_id').bootstrapValidator({
-    framework: 'bootstrap',
-    feedbackIcons: {
-      valid: 'glyphicon glyphicon-ok',
-      invalid: 'glyphicon glyphicon-remove',
-      validating: 'glyphicon glyphicon-refresh'
-    },
-    fields: {
-      'ctactecli[cliente_id]': {
-        trigger: 'blur',
-        validators: {
-          integer: {
-            message: 'No es un número'
-          },
-          notEmpty: {
-            message: 'El cliente es requerido'
-          },
-          stringLength: {
-                          min: 1,
-                          max: 7,
-                          message: 'El cliente debe tener entre 1 y 7 caractéres'
-          }
-        }
-      },
-      'ctactecli[saldo]': {
-        trigger: 'blur',
-        validators: {
-          integer: {
-            message: 'No es un número'
-          },
-          notEmpty: {
-            message: 'El saldo es requerido'
-          },
-          stringLength: {
-                          min: 1,
-                          max: 7,
-                          message: 'El saldo debe tener entre 1 y 7 caractéres'
-          }
-        }
-      }
-    }  
-  });
-});
-
-</script>

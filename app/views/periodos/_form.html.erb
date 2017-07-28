@@ -17,13 +17,13 @@
         <div class="col-md-6">
           <div class="form-group">
             <%= f.label :periodo, "Periodo *", class: "control-label" %>
-            <%= f.date_field :periodo, class: "form-control" %>
+            <%= f.date_field :periodo, required: true, class: "form-control" %>
           </div>
         </div>
         <div class="col-md-6">
           <div class="form-group">
             <%= f.label :fecha_vencimiento, "Fecha de vencimiento *", class: "control-label" %>
-            <%= f.date_field :fecha_vencimiento, class: "form-control" %>
+            <%= f.date_field :fecha_vencimiento, required: true, class: "form-control" %>
           </div>
         </div>
         <div class="col-md-6">
@@ -43,36 +43,3 @@
     </div>
   </div>
 <% end %>
-
-<script type="text/javascript">
-
-$(document).on('turbolinks:load', function() {
-  $('#periodo_id').bootstrapValidator({
-    framework: 'bootstrap',
-    feedbackIcons: {
-      valid: 'glyphicon glyphicon-ok',
-      invalid: 'glyphicon glyphicon-remove',
-      validating: 'glyphicon glyphicon-refresh'
-    },
-    fields: {
-      'periodo[periodo]': {
-        trigger: 'blur',
-        validators: {
-          notEmpty: {
-            message: 'El periodo es requerido'
-          }
-        }
-      },
-      'periodo[fecha_vencimiento]': {
-        trigger: 'blur',
-        validators: {
-          notEmpty: {
-            message: 'La fecha de vencimiento es requerida'
-          }
-        }
-      }
-    }  
-  });
-});
-
-</script>

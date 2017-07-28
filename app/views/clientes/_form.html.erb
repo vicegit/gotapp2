@@ -17,21 +17,21 @@
       <div class="col-md-6">
         <div class="form-group">
           <%= f.label :ci, "Cédula de identidad Nº *", class: "control-label" %>
-          <%= f.number_field :ci, class: "form-control"%>
+          <%= f.number_field :ci, required: true, minlength: 6, maxlength: 8, class: "form-control"%>
         </div>
       </div>
 
       <div class="col-md-6">
         <div class="form-group">
           <%= f.label :nombre, "Nombre *", class: "control-label" %>
-          <%= f.text_field :nombre, class: "form-control uppercase" %>
+          <%= f.text_field :nombre, required: true, minlength: 6, maxlength: 100, class: "form-control uppercase" %>
         </div>
       </div>
 
       <div class="col-md-6">
         <div class="form-group">
           <%= f.label :direccion, "Dirección *", class: "control-label" %>
-          <%= f.text_field :direccion, class: "form-control uppercase" %>
+          <%= f.text_field :direccion, required: true, minlength: 6, maxlength: 100, class: "form-control uppercase" %>
         </div>
       </div>
 
@@ -73,62 +73,3 @@
   </div>
 </div>
 <% end %>
-
-<script type="text/javascript">
-
-$(document).on('turbolinks:load', function() {
-  $('#cliente_id').bootstrapValidator({
-    framework: 'bootstrap',
-    feedbackIcons: {
-      valid: 'glyphicon glyphicon-ok',
-      invalid: 'glyphicon glyphicon-remove',
-      validating: 'glyphicon glyphicon-refresh'
-    },
-    fields: {
-      'cliente[ci]': {
-        trigger: 'blur',
-        validators: {
-          integer: {
-            message: 'No es un número'
-          },
-          notEmpty: {
-            message: 'La cédula de identidad es requerida'
-          },
-          stringLength: {
-                          min: 6,
-                          max: 8,
-                          message: 'La cédula de idéntidad debe tener entre 6 y 8 caractéres'
-          }
-        }
-      },
-      'cliente[nombre]': {
-        trigger: 'blur',
-        validators: {
-          notEmpty: {
-            message: 'El nombre es requerido'
-          },
-          stringLength: {
-                          min: 6,
-                          max: 100,
-                          message: 'El nombre debe tener entre 6 y 100 caractéres'
-          }
-        }
-      },
-      'cliente[direccion]': {
-        trigger: 'blur',
-        validators: {
-          notEmpty: {
-            message: 'La dirección es requerida'
-          },
-          stringLength: {
-                          min: 6,
-                          max: 100,
-                          message: 'La dirección debe tener entre 6 y 100 caractéres'
-          }
-        }
-      }
-    }  
-  });
-});
-
-</script>

@@ -44,28 +44,28 @@ class LecturasController < ApplicationController
       end
 
     #Editar lectura.
-      lectura = Lectura.new
-      lectura.cliente_id = medidor.cliente_id
-      lectura.periodo_id = periodo.id
-      lectura.fecha = Date.today
-      lectura.numero = numero
-      lectura.actual = actual
-      lectura.consumo = consumototal
-      lectura.exceso = consumoexceso
+      @lectura = Lectura.new
+      @lectura.cliente_id = medidor.cliente_id
+      @lectura.periodo_id = periodo.id
+      @lectura.fecha = Date.today
+      @lectura.numero = numero
+      @lectura.actual = actual
+      @lectura.consumo = consumototal
+      @lectura.exceso = consumoexceso
 
     #Guardar lectura.
       respond_to do |format|
-        if lectura.save
+        if @lectura.save
           medidor.medicion = actual
           medidor.save
           puts'Lectura guardada'
-          format.js { }
+          format.json { render :show, status: :created, location: @lectura }
           #format.html { redirect_to @lectura, notice: 'La lectura fue creada.' }
-          #format.json { render :show, status: :created, location: @lectura }
+          #format.js { }
         else
           puts'Lectura no guardada'
+          format.json { render json: @lectura.errors, status: :unprocessable_entity }
           #format.html { render :new }
-          #format.json { render json: @lectura.errors, status: :unprocessable_entity }
         end
       end
   end
