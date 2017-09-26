@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :facturas
   resources :lecturas
   resources :medidors
+  resources :pagos
   resources :periodos
   resources :servicios
   resources :reportes, only: [:index]

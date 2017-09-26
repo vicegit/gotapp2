@@ -1,0 +1,115 @@
+<h1 class="page-header">
+  Pagos
+  <%= link_to new_pago_path, class: 'btn btn-default' do %>
+  <span class="glyphicon glyphicon-plus"></span>
+  Nuevo Pago
+  <% end %>
+</h1>
+
+<!-- Pagos -->
+<div class="panel panel-default">
+  <div class="panel-body">
+    <table id="tablapago" class="display responsive no-wrap">
+      <thead>
+        <tr>
+          <th>Factura</th>
+          <th>Fecha pago</th>
+          <th>Monto</th>          
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @pagos.each do |pago| %>
+        <tr>
+          <td><%= pago.factura_id %></td>
+          <td><%= pago.fechapago.strftime("%d-%m-%Y") %></td>
+          <td><%= number_with_delimiter(pago.monto, delimiter: ".") %></td>
+          <td>
+            <%= link_to pago do %>
+            <span class="glyphicon glyphicon-eye-open" aria-hidden="true" title="Ver"></span>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to edit_pago_path(pago) do %>
+            <span class="glyphicon glyphicon-pencil" aria-hidden="true" title="Editar"></span>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to pago, method: :delete, data: { title: 'Eliminar pago', confirm:'¿Quieres eliminar este pago?', commit: 'Eliminar', cancel: 'Cancelar' } do %>
+            <span class="glyphicon glyphicon-trash" aria-hidden="true" title="Eliminar"></span>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!--End Pagos -->
+
+<script type="text/javascript">
+
+$(document).on('turbolinks:load', function() {
+
+  $('#tablapago').DataTable({
+    
+    "order": [ 0, "asc" ],
+
+    "language": {
+        "sProcessing":    "Procesando...",
+        "sLengthMenu":    "Mostrar _MENU_ registros",
+        "sZeroRecords":   "No se encontraron resultados",
+        "sEmptyTable":    "Ningún dato disponible en esta tabla",
+        "sInfo":          "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+        "sInfoEmpty":     "Mostrando registros del 0 al 0 de un total de 0 registros",
+        "sInfoFiltered":  "(filtrado de un total de _MAX_ registros)",
+        "sInfoPostFix":   "",
+        "sSearch":        "Buscar:",
+        "sUrl":           "",
+        "sInfoThousands":  ",",
+        "sLoadingRecords": "Cargando...",
+        "oPaginate": {
+            "sFirst":    "Primero",
+            "sLast":    "Último",
+            "sNext":    "Siguiente",
+            "sPrevious": "Anterior"
+        },
+        "oAria": {
+            "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+            "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+        },
+        buttons: {
+                copy: 'Copiar',
+                copyTitle: 'Copiar al portapapeles',
+                copySuccess: {
+                    _: 'Copiados %d filas al portapapeles',
+                    1: 'Copiado 1 fila al portapapeles'
+                },
+                print: 'Imprimir',
+                pageLength: 'Mostrar %d filas'
+            }
+    },
+
+    responsive: true,
+    
+    destroy: true,
+    
+    dom: 'Bfrtip',
+    
+    lengthMenu: [
+    [ 10, 25, 50, -1 ],
+    [ '10 filas', '25 filas', '50 filas', 'Mostrar todo' ]
+    ],
+    
+    buttons: [
+    'pageLength', 'copy', 'csv', 'excel', 'pdf', 'print'
+    ]
+  });
+  
+  $('div#tablapago_filter input').addClass('form-control input-sm input-width');
+
+});
+
+</script>

@@ -5,12 +5,12 @@ class Lectura < ApplicationRecord
 
 	#Validaciones de número
 	validates :numero, :presence => {:message => "Debe ingresar un número"}, 
-		length: {minimum: 1, maximum: 8, :message => "El número debe tener entre 1 y 8 caracteres"}, 
-	
+		length: {minimum: 1, maximum: 8, :message => "El número debe tener entre 1 y 8 caracteres"}
+
 	#Validaciones de actual
 	validates :actual, :presence => {:message => "Debe ingresar el actual"}, 
-	length: {minimum: 1, maximum: 5, :message => "El actual debe tener entre 1 y 5 caracteres"}
-	:numericality => {:only_integer => true, :message => "Debe ingresar un número entero"}
+		length: {minimum: 1, maximum: 5, :message => "El actual debe tener entre 1 y 5 caracteres"}, 
+		:numericality => {:only_integer => true, :message => "Debe ingresar un número entero"}
 
   	private
   	#def self.crearlectura(numero, actual)

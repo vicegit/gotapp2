@@ -93,11 +93,11 @@
           <li class="<%= 'active-menu' if current_page?(ctacteclis_path) %>">
             <%= link_to ctacteclis_path do %>
             <span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span>
-            Cuenta Corriente Cliente
+            Cuenta Corriente
             <% end %>
           </li>
-          <li>
-            <%= link_to  do %>
+          <li class="<%= 'active-menu' if current_page?(pagos_path) %>">
+            <%= link_to pagos_path do %>
             <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
             Pagos
             <% end %>
@@ -121,7 +121,7 @@
           </div>
         </div>
         <!-- /. ROW  -->
-        <footer><p>Universidad Autónoma de Encarnación - Sistema de Gestión para una Aguatería - Vicente Esteche, 2017.</p></footer>
+        <footer><center>Universidad Autónoma de Encarnación - Sistema de Gestión para una Aguatería - Vicente Esteche, 2017.</center></footer>
       </div>
       <!-- /. PAGE INNER  -->
     </div>

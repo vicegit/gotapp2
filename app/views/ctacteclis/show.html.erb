@@ -44,7 +44,7 @@
           <tbody>
             <% @detallescta.each do |detalle| -%>
               <tr>
-                <td><%= detalle.fechadetalle %></td>
+                <td><%= detalle.fechadetalle.strftime("%d-%m-%Y") %></td>
                 <td><%= detalle.tipodetalle %></td>
                 <td><%= number_with_delimiter(detalle.debe, delimiter: ".") %></td>
                 <td><%= number_with_delimiter(detalle.haber, delimiter: ".") %></td>

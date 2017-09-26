@@ -1,0 +1,9 @@
+<h1 class="page-header">
+  Nuevo pago
+  <%= link_to pagos_path, class: 'btn btn-default' do %>
+  <span class="glyphicon glyphicon-list-alt"></span>
+  Atrás
+  <% end %>
+</h1>
+
+<%= render 'form', pago: @pago %>

@@ -62,7 +62,7 @@ class FacturasController < ApplicationController
       fac.total = totalfacturacion
       fac.save
       #Inserción en la cuenta corriente cliente por el debe.
-      ctactecli = Ctactecli.find_by(id: cli.id)
+      ctactecli = Ctactecli.find_by(cliente_id: cli.id)
       detallectactecli = Detallectactecli.new
       detallectactecli.ctactecli_id = ctactecli.id
       detallectactecli.fechadetalle = Date.today

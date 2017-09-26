@@ -1,0 +1,13 @@
+<h1 class="page-header">
+  Editar Pago
+  <%= link_to pagos_path, class: 'btn btn-default' do %>
+  <span class="glyphicon glyphicon-list-alt"></span>
+  Atrás
+  <% end %>
+  <%= link_to @pago, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-info-sign"></span>
+    Ver
+  <% end %>
+</h1>
+
+<%= render 'form', pago: @pago %>

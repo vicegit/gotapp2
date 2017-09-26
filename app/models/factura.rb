@@ -1,5 +1,6 @@
 class Factura < ApplicationRecord
 
+	has_one :pago
 	belongs_to :cliente
 	belongs_to :periodo
 	has_many :detallefacturas
@@ -21,7 +22,7 @@ class Factura < ApplicationRecord
 		length: {minimum: 3, maximum: 7, :message => "La condición debe tener entre 3 y 7 caracteres"}
 
 	#Validaciones de fecha
-	validates :fecha, :presence => {:message => "Debe ingresar una fecha"}, 
+	validates :fecha, :presence => {:message => "Debe ingresar una fecha"}
 
 	#Validaciones de iva
 	validates :iva, :presence => {:message => "Debe ingresar un iva"}, 

@@ -1,0 +1,37 @@
+<h1 class="page-header">
+  Pago
+  <%= link_to pagos_path, class: 'btn btn-default' do %>
+  <span class="glyphicon glyphicon-list-alt"></span>
+  Atrás
+  <% end %>
+  <%= link_to edit_pago_path(@pago), class: 'btn btn-default' do %>
+  <span class="glyphicon glyphicon-pencil"></span>
+  Editar
+  <% end %>
+</h1>
+
+<div class="panel panel-default">
+	<div class="panel-body">
+  		<div class="row">
+    		<div class="col-md-6">
+				<p>
+  					<strong>Factura:</strong>
+  					<%= @pago.factura_id %>
+				</p>
+
+				<p>
+  					<strong>Fecha de pago:</strong>
+  					<%= @pago.fechapago.strftime("%d-%m-%Y") %>
+				</p>
+			</div>
+
+			<div class="col-md-6">
+				<p>
+          			
+          			<strong>Monto:</strong>
+  					<%= number_with_delimiter(@pago.monto, delimiter: ".") %>
+        		</p>
+			</div>
+		</div>
+	</div>
+</div>
