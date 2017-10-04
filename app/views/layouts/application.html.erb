@@ -54,16 +54,16 @@
     <nav class="navbar-default navbar-side" role="navigation">
       <div class="sidebar-collapse">
         <ul class="nav" id="main-menu">
-          <li class="<%= 'active-menu' if current_page?(medidors_path) %>">
-            <%= link_to medidors_path do %>
-            <span class="glyphicon glyphicon-tint" aria-hidden="true"></span>
-            Medidores
-            <% end %>
-          </li>
           <li class="<%= 'active-menu' if current_page?(clientes_path) %>">
             <%= link_to clientes_path do %>
             <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
             Clientes
+            <% end %>
+          </li>
+          <li class="<%= 'active-menu' if current_page?(medidors_path) %>">
+            <%= link_to medidors_path do %>
+            <span class="glyphicon glyphicon-tint" aria-hidden="true"></span>
+            Medidores
             <% end %>
           </li>
           <li class="<%= 'active-menu' if current_page?(periodos_path) %>">
@@ -90,16 +90,16 @@
             Facturas
             <% end %>
           </li>
-          <li class="<%= 'active-menu' if current_page?(ctacteclis_path) %>">
-            <%= link_to ctacteclis_path do %>
-            <span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span>
-            Cuenta Corriente
-            <% end %>
-          </li>
           <li class="<%= 'active-menu' if current_page?(pagos_path) %>">
             <%= link_to pagos_path do %>
             <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
             Pagos
+            <% end %>
+          </li>
+          <li class="<%= 'active-menu' if current_page?(ctacteclis_path) %>">
+            <%= link_to ctacteclis_path do %>
+            <span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span>
+            Cuenta Corriente
             <% end %>
           </li>
           <li class="<%= 'active-menu' if current_page?(reportes_path) %>">

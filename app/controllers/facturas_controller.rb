@@ -4,7 +4,7 @@ class FacturasController < ApplicationController
   # GET /facturas
   # GET /facturas.json
   def index
-    @facturas = Factura.all
+    @facturas = Factura.includes(:cliente, :periodo).all
   end
 
   # GET /facturas/1
