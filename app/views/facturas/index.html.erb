@@ -6,10 +6,15 @@
     Crear facturas
   <% end %>
 
-  <%= link_to new_factura_path, class: 'btn btn-default' do %>
+  <%= link_to facturas_reportefactura_path(:format=>:pdf), method: :post, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-print"></span>
+    Imprimir facturas
+  <% end %>
+
+  <!--<%= link_to new_factura_path, class: 'btn btn-default' do %>
   <span class="glyphicon glyphicon-plus"></span>
   Nueva Factura
-  <% end %>
+  <% end %>-->
 
 </h1>
 

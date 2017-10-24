@@ -28,8 +28,8 @@
         </div>
         <div class="col-md-6">
           <div class="form-group">
-            <%= f.label :cliente_id, "Cliente", class: "control-label" %>
-            <%= f.number_field :cliente_id, required: true, minlength: 1, maxlength: 7, class: "form-control" %>
+            <%= f.label :cliente_id, "Cliente *", class: "control-label" %>
+            <%= f.collection_select :cliente_id, @clientes, :id, :nombre, {prompt: "Seleccione un cliente"}, {required: true, class: "form-control"} %>
           </div>
         </div>
         <div class="col-md-6">

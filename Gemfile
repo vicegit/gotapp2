@@ -61,3 +61,5 @@ gem 'data-confirm-modal'
 gem 'jquery-datatables-rails'
 
 gem 'toastr-rails'
+
+gem 'prawn-rails'

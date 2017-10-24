@@ -15,6 +15,7 @@ class MedidorsController < ApplicationController
   # GET /medidors/new
   def new
     @medidor = Medidor.new
+    @clientes = Cliente.all
   end
 
   # GET /medidors/1/edit

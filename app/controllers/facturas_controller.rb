@@ -7,6 +7,11 @@ class FacturasController < ApplicationController
     @facturas = Factura.includes(:cliente, :periodo).all
   end
 
+  # Reporte de facturas
+  def reportefactura
+    @facturas = Factura.includes(:cliente, :periodo).where(periodo_id: Periodo.last.id)
+  end  
+
   # GET /facturas/1
   # GET /facturas/1.json
   def show
@@ -39,12 +44,14 @@ class FacturasController < ApplicationController
       fac.condicion = 'CRÉDITO'
       fac.fecha = Date.today
       fac.save
+      
       #Inserción en detalle de factura del mínimo.
       detalle1 = Detallefactura.new
       detalle1.factura_id = Factura.last.id
       detalle1.servicio_id = minimo.id
       detalle1.subtotal = minimo.tarifa
       detalle1.save
+      
       #Inserción en detalle de factura del exceso.
       cantidadexceso = Lectura.find_by(cliente_id: cli.id, periodo_id: periodo)
       totaltarifaexceso = cantidadexceso.exceso * exceso.tarifa
@@ -53,6 +60,7 @@ class FacturasController < ApplicationController
       detalle2.servicio_id = exceso.id
       detalle2.subtotal = totaltarifaexceso
       detalle2.save
+      
       #Actualización de la cabecera de factura.
       totalerssan = ((minimo.tarifa + totaltarifaexceso) * 0.02).to_i
       totalfacturacion = (minimo.tarifa + totaltarifaexceso + totalerssan).to_i
@@ -61,6 +69,7 @@ class FacturasController < ApplicationController
       fac.erssan = totalerssan
       fac.total = totalfacturacion
       fac.save
+      
       #Inserción en la cuenta corriente cliente por el debe.
       ctactecli = Ctactecli.find_by(cliente_id: cli.id)
       detallectactecli = Detallectactecli.new
@@ -72,6 +81,11 @@ class FacturasController < ApplicationController
       ctactecli.saldo = ctactecli.saldo + totalfacturacion
       ctactecli.save
     end
+
+    respond_to do |format|
+      format.html { redirect_to facturas_path, success: 'Las facturas fueron creadas.' }
+    end
+
   end
 
   # POST /facturas

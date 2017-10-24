@@ -11,4 +11,9 @@ Rails.application.routes.draw do
   resources :servicios
   resources :reportes, only: [:index]
   post 'facturas/facturar'
+  post 'facturas/reportefactura'
+  get 'reportes/reporteconsumo'
+  get 'reportes/reportebalance'
+  get 'reportes/reportepagos'
+  get 'reportes/reportedeudas'
 end

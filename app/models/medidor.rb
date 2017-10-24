@@ -14,9 +14,7 @@ class Medidor < ApplicationRecord
 		:numericality => {:only_integer => true, :message => "Debe ingresar un número entero"}
 
 	#Validaciones de cliente_id
-	validates :cliente_id, :presence => {:message => "Debe ingresar un cliente"},  
-		length: {minimum: 1, maximum: 7, :message => "El cliente debe tener entre 1 y 7 caracteres"}, 
-		:numericality => {:only_integer => true, :message => "Debe ingresar un número entero"}
+	validates :cliente_id, :presence => {:message => "Debe ingresar un cliente"}
 
    def mayusculas
       self.numero.upcase!
